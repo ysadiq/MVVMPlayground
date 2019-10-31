@@ -13,6 +13,7 @@
 		9951576023433C8000E95F79 /* ApiServiceMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9951575F23433C8000E95F79 /* ApiServiceMock.swift */; };
 		9951576223433CE700E95F79 /* StubGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9951576123433CE700E95F79 /* StubGenerator.swift */; };
 		996B8727236AD54000285754 /* State.swift in Sources */ = {isa = PBXBuildFile; fileRef = 996B8726236AD54000285754 /* State.swift */; };
+		996B8729236AF27200285754 /* PhotoListCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 996B8728236AF27200285754 /* PhotoListCellViewModel.swift */; };
 		B5296F0A1F809ADF003CDD90 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5296F091F809ADF003CDD90 /* AppDelegate.swift */; };
 		B5296F0F1F809ADF003CDD90 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B5296F0D1F809ADF003CDD90 /* Main.storyboard */; };
 		B5296F111F809ADF003CDD90 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B5296F101F809ADF003CDD90 /* Assets.xcassets */; };
@@ -49,6 +50,7 @@
 		9951575F23433C8000E95F79 /* ApiServiceMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiServiceMock.swift; sourceTree = "<group>"; };
 		9951576123433CE700E95F79 /* StubGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StubGenerator.swift; sourceTree = "<group>"; };
 		996B8726236AD54000285754 /* State.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = State.swift; sourceTree = "<group>"; };
+		996B8728236AF27200285754 /* PhotoListCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoListCellViewModel.swift; sourceTree = "<group>"; };
 		B5296F061F809ADF003CDD90 /* MVVMPlayground.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MVVMPlayground.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B5296F091F809ADF003CDD90 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B5296F0E1F809ADF003CDD90 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -118,6 +120,16 @@
 			path = Others;
 			sourceTree = "<group>";
 		};
+		996B872A236AF2D600285754 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				B53F33DD1F839F2B00CCABB5 /* PhotoListViewModel.swift */,
+				996B8728236AF27200285754 /* PhotoListCellViewModel.swift */,
+				996B8726236AD54000285754 /* State.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
 		B5296EFD1F809ADF003CDD90 = {
 			isa = PBXGroup;
 			children = (
@@ -145,7 +157,6 @@
 				B5296F2A1F809BD2003CDD90 /* Model */,
 				B5296F291F809BC8003CDD90 /* Module */,
 				995157632343898700E95F79 /* Others */,
-				996B8726236AD54000285754 /* State.swift */,
 			);
 			path = MVVMPlayground;
 			sourceTree = "<group>";
@@ -184,8 +195,8 @@
 			isa = PBXGroup;
 			children = (
 				B5296F311F809F4D003CDD90 /* PhotoListViewController.swift */,
-				B53F33DD1F839F2B00CCABB5 /* PhotoListViewModel.swift */,
 				9951575D234333C700E95F79 /* PhotoListTableViewCell.swift */,
+				996B872A236AF2D600285754 /* ViewModel */,
 			);
 			path = PhotoListWithMVVM;
 			sourceTree = "<group>";
@@ -432,6 +443,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B5296F321F809F4D003CDD90 /* PhotoListViewController.swift in Sources */,
+				996B8729236AF27200285754 /* PhotoListCellViewModel.swift in Sources */,
 				B53F33DE1F839F2B00CCABB5 /* PhotoListViewModel.swift in Sources */,
 				B5296F2D1F809EF2003CDD90 /* photo.swift in Sources */,
 				B5296F301F809F0E003CDD90 /* APIService.swift in Sources */,

@@ -12,6 +12,7 @@
 		9951575E234333C700E95F79 /* PhotoListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9951575D234333C700E95F79 /* PhotoListTableViewCell.swift */; };
 		9951576023433C8000E95F79 /* ApiServiceMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9951575F23433C8000E95F79 /* ApiServiceMock.swift */; };
 		9951576223433CE700E95F79 /* StubGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9951576123433CE700E95F79 /* StubGenerator.swift */; };
+		996B8727236AD54000285754 /* State.swift in Sources */ = {isa = PBXBuildFile; fileRef = 996B8726236AD54000285754 /* State.swift */; };
 		B5296F0A1F809ADF003CDD90 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5296F091F809ADF003CDD90 /* AppDelegate.swift */; };
 		B5296F0F1F809ADF003CDD90 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B5296F0D1F809ADF003CDD90 /* Main.storyboard */; };
 		B5296F111F809ADF003CDD90 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B5296F101F809ADF003CDD90 /* Assets.xcassets */; };
@@ -47,6 +48,7 @@
 		9951575D234333C700E95F79 /* PhotoListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoListTableViewCell.swift; sourceTree = "<group>"; };
 		9951575F23433C8000E95F79 /* ApiServiceMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiServiceMock.swift; sourceTree = "<group>"; };
 		9951576123433CE700E95F79 /* StubGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StubGenerator.swift; sourceTree = "<group>"; };
+		996B8726236AD54000285754 /* State.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = State.swift; sourceTree = "<group>"; };
 		B5296F061F809ADF003CDD90 /* MVVMPlayground.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MVVMPlayground.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B5296F091F809ADF003CDD90 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B5296F0E1F809ADF003CDD90 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -143,6 +145,7 @@
 				B5296F2A1F809BD2003CDD90 /* Model */,
 				B5296F291F809BC8003CDD90 /* Module */,
 				995157632343898700E95F79 /* Others */,
+				996B8726236AD54000285754 /* State.swift */,
 			);
 			path = MVVMPlayground;
 			sourceTree = "<group>";
@@ -435,6 +438,7 @@
 				9951575E234333C700E95F79 /* PhotoListTableViewCell.swift in Sources */,
 				B5296F3C1F82A39C003CDD90 /* PhotoDetailViewController.swift in Sources */,
 				B5296F0A1F809ADF003CDD90 /* AppDelegate.swift in Sources */,
+				996B8727236AD54000285754 /* State.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

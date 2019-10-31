@@ -46,24 +46,36 @@ class PhotoListViewController: UIViewController {
                 }
             }
         }
-        
+
         viewModel.updateLoadingStatus = { [weak self] () in
-            DispatchQueue.main.async {
-                let isLoading = self?.viewModel.isLoading ?? false
-                if isLoading {
-                    self?.activityIndicator.startAnimating()
+            guard let self = self else {
+                return
+            }
+
+            DispatchQueue.main.async { [weak self] in
+                guard let self = self else {
+                    return
+                }
+                switch self.viewModel.state {
+                case .empty, .error:
+                    self.activityIndicator.stopAnimating()
                     UIView.animate(withDuration: 0.2, animations: {
-                        self?.tableView.alpha = 0.0
+                        self.tableView.alpha = 0.0
                     })
-                }else {
-                    self?.activityIndicator.stopAnimating()
+                case .loading:
+                    self.activityIndicator.startAnimating()
                     UIView.animate(withDuration: 0.2, animations: {
-                        self?.tableView.alpha = 1.0
+                        self.tableView.alpha = 0.0
+                    })
+                case .populated:
+                    self.activityIndicator.stopAnimating()
+                    UIView.animate(withDuration: 0.2, animations: {
+                        self.tableView.alpha = 1.0
                     })
                 }
             }
         }
-        
+
         viewModel.reloadTableViewClosure = { [weak self] () in
             DispatchQueue.main.async {
                 self?.tableView.reloadData()

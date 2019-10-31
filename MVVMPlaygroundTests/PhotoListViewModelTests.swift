@@ -73,13 +73,13 @@ class PhotoListViewModelTests: XCTestCase {
         
     }
     
-    func test_loading_when_fetching() {
+    func test_populated_state_when_fetching() {
         
         //Given
-        var loadingStatus = false
-        let expect = XCTestExpectation(description: "Loading status updated")
+        var state: State = .empty
+        let expect = XCTestExpectation(description: "Loading state updated to populated")
         sut.updateLoadingStatus = { [weak sut] in
-            loadingStatus = sut!.isLoading
+            state = sut!.state
             expect.fulfill()
         }
         
@@ -87,12 +87,37 @@ class PhotoListViewModelTests: XCTestCase {
         sut.initFetch()
         
         // Assert
-        XCTAssertTrue( loadingStatus )
-        
+        XCTAssertEqual(state, State.loading)
+
         // When finished fetching 
         apiServiceMock!.fetchSuccess()
-        XCTAssertFalse( loadingStatus )
-        
+        XCTAssertEqual(state, State.populated)
+
+        wait(for: [expect], timeout: 1.0)
+    }
+
+    func test_error_state_when_fetching() {
+
+        //Given
+        var state: State = .empty
+        let expect = XCTestExpectation(description: "Loading state updated to error")
+        sut.updateLoadingStatus = { [weak sut] in
+            state = sut!.state
+            expect.fulfill()
+        }
+        // Given a failed fetch with a certain failure
+        let error = APIError.permissionDenied
+
+        //when fetching
+        sut.initFetch()
+
+        // Assert
+        XCTAssertEqual(state, State.loading)
+
+        // When finished fetching
+        apiServiceMock!.fetchFail(error: error)
+        XCTAssertEqual(state, State.error)
+
         wait(for: [expect], timeout: 1.0)
     }
     

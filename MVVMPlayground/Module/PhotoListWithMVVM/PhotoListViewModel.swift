@@ -20,7 +20,8 @@ class PhotoListViewModel {
         }
     }
 
-    var isLoading: Bool = false {
+    // callback for interfaces
+    var state: State = .empty {
         didSet {
             self.updateLoadingStatus?()
         }
@@ -49,13 +50,14 @@ class PhotoListViewModel {
     }
     
     func initFetch() {
-        self.isLoading = true
+        state = .loading
         apiService.fetchPopularPhoto { [weak self] (success, photos, error) in
-            self?.isLoading = false
             if let error = error {
                 self?.alertMessage = error.rawValue
+                self?.state = .error
             } else {
                 self?.processFetchedPhoto(photos: photos)
+                self?.state = .populated
             }
         }
     }

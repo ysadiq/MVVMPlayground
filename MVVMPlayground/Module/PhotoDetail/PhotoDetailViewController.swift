@@ -18,9 +18,7 @@ class PhotoDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         if let imageUrl = imageUrl {
-            imageView.sd_setImage(with: URL(string: imageUrl)) { (image, error, type, url) in
-            
-            }
+            imageView.sd_setImage(with: URL(string: imageUrl), completed: nil)
         }
         
     }
@@ -28,5 +26,4 @@ class PhotoDetailViewController: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
-
 }

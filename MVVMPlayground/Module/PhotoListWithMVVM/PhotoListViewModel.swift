@@ -52,13 +52,18 @@ class PhotoListViewModel {
     func initFetch() {
         state = .loading
         apiService.fetchPopularPhoto { [weak self] (success, photos, error) in
-            if let error = error {
-                self?.alertMessage = error.rawValue
-                self?.state = .error
-            } else {
-                self?.processFetchedPhoto(photos: photos)
-                self?.state = .populated
+            guard let self = self else {
+                return
             }
+
+            guard error == nil else {
+                self.state = .error
+                self.alertMessage = error?.rawValue
+                return
+            }
+
+            self.processFetchedPhoto(photos: photos)
+            self.state = .populated
         }
     }
     

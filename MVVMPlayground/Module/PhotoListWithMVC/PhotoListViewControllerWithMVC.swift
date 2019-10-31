@@ -43,13 +43,13 @@ class PhotoListViewControllerWithMVC: UIViewController {
     }
 
     func initData() {
-        // (problem #4: In addition, there’s another dependency, the API service, in the view controller.)
+        // (problem #2: another dependency, the API service)
         apiService.fetchPopularPhoto { [weak self] (success, photos, error) in
             DispatchQueue.main.async {
                 self?.photos = photos
-                // (problem #2: when to start/stop the activity indicator.)
+                // (problem #3: when to start/stop the activity indicator.)
                 self?.activityIndicator.stopAnimating()
-                // (problem #3: We also have the View code such as the implementation of showing/hiding the table view)
+                // (problem #4: We also have the View code such as the implementation of showing/hiding the table view)
                 UIView.animate(withDuration: 0.2, animations: {
                     self?.tableView.alpha = 1.0
                 })
@@ -87,7 +87,8 @@ extension PhotoListViewControllerWithMVC: UITableViewDelegate, UITableViewDataSo
         }
         cell.descriptionLabel.text = descText.joined(separator: " - ")
 
-        //Wrap the date (problem #1: The presentational logic such as converting Date to String)
+        // (problem #1: The presentational logic such as converting Date to String)
+        // Wrap the date
         let dateFormateer = DateFormatter()
         dateFormateer.dateFormat = "yyyy-MM-dd"
         cell.dateLabel.text = dateFormateer.string(from: photo.created_at)
@@ -102,14 +103,14 @@ extension PhotoListViewControllerWithMVC: UITableViewDelegate, UITableViewDataSo
         return 1
     }
 
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.photos.count
-    }
-
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 150.0
     }
 
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return self.photos.count
+    }
+    
     func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {
 
         let photo = self.photos[indexPath.row]

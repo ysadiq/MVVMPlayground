@@ -3,7 +3,7 @@ language: swift
 osx_image: xcode10.3
 
 script:
-  - xcodebuild -scheme MVVMPlayground -sdk iphonesimulator -destination 'platform=iOS Simulator,name=iPhone XR,OS=12.4' build test
+  - xcodebuild -scheme MVVMPlayground -workspace MVVMPlayground.xcworkspace -sdk iphonesimulator -destination 'platform=iOS Simulator,name=iPhone XR,OS=12.4' build test
   #- sonar-scanner
 after_success:
   - bash <(curl -s https://codecov.io/bash)

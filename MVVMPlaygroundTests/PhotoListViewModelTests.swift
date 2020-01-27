@@ -45,10 +45,10 @@ class PhotoListViewModelTests: XCTestCase {
         // When
         sut.initFetch()
         
-        apiServiceMock.fetchFail(error: error )
+        apiServiceMock.fetchFail(error: error)
         
         // Sut should display predefined error message
-        XCTAssertEqual( sut.alertMessage, error.rawValue )
+        XCTAssertEqual(sut.alertMessage, error.rawValue)
         
     }
     
@@ -56,35 +56,34 @@ class PhotoListViewModelTests: XCTestCase {
         // Given
         let photos = StubGenerator().stubPhotos()
         apiServiceMock.completePhotos = photos
-        let expect = XCTestExpectation(description: "reload closure triggered")
+
+        let promise = XCTestExpectation(description: "reload closure triggered")
         sut.reloadTableViewClosure = { () in
-            expect.fulfill()
+            promise.fulfill()
         }
         
         // When
         sut.initFetch()
         apiServiceMock.fetchSuccess()
+        wait(for: [promise], timeout: 1.0)
         
         // Number of cell view model is equal to the number of photos
-        XCTAssertEqual( sut.numberOfCells, photos.count )
-        
-        // XCTAssert reload closure triggered
-        wait(for: [expect], timeout: 1.0)
-        
+        XCTAssertEqual(sut.numberOfCells, photos.count)
     }
     
     func test_populated_state_when_fetching() {
         
         //Given
         var state: State = .empty
-        let expect = XCTestExpectation(description: "Loading state updated to populated")
+        let promise = XCTestExpectation(description: "Loading state updated to populated")
         sut.updateLoadingStatus = { [weak sut] in
             state = sut!.state
-            expect.fulfill()
+            promise.fulfill()
         }
         
         //when fetching
         sut.initFetch()
+        wait(for: [promise], timeout: 1.0)
         
         // Assert
         XCTAssertEqual(state, State.loading)
@@ -92,24 +91,23 @@ class PhotoListViewModelTests: XCTestCase {
         // When finished fetching 
         apiServiceMock!.fetchSuccess()
         XCTAssertEqual(state, State.populated)
-
-        wait(for: [expect], timeout: 1.0)
     }
 
     func test_error_state_when_fetching() {
 
         //Given
         var state: State = .empty
-        let expect = XCTestExpectation(description: "Loading state updated to error")
+        let promise = XCTestExpectation(description: "Loading state updated to error")
         sut.updateLoadingStatus = { [weak sut] in
             state = sut!.state
-            expect.fulfill()
+            promise.fulfill()
         }
         // Given a failed fetch with a certain failure
         let error = APIError.permissionDenied
 
         //when fetching
         sut.initFetch()
+        wait(for: [promise], timeout: 1.0)
 
         // Assert
         XCTAssertEqual(state, State.loading)
@@ -117,8 +115,6 @@ class PhotoListViewModelTests: XCTestCase {
         // When finished fetching
         apiServiceMock!.fetchFail(error: error)
         XCTAssertEqual(state, State.error)
-
-        wait(for: [expect], timeout: 1.0)
     }
     
     func test_user_press_for_sale_item() {
@@ -142,20 +138,19 @@ class PhotoListViewModelTests: XCTestCase {
         let indexPath = IndexPath(row: 4, section: 0)
         goToFetchPhotoFinished()
         
-        let expect = XCTestExpectation(description: "Alert message is shown")
+        let promise = XCTestExpectation(description: "Alert message is shown")
         sut.showAlertClosure = { [weak sut] in
-            expect.fulfill()
+            promise.fulfill()
             XCTAssertEqual(sut!.alertMessage, "This item is not for sale")
         }
         
         //When
         sut.userPressed( at: indexPath )
+        wait(for: [promise], timeout: 1.0)
         
         //Assert
         XCTAssertFalse( sut.isAllowSegue )
         XCTAssertNil( sut.selectedPhoto )
-        
-        wait(for: [expect], timeout: 1.0)
     }
     
     func test_get_cell_view_model() {

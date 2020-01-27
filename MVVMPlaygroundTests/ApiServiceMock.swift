@@ -19,15 +19,14 @@ class ApiServiceMock: APIServiceProtocol {
     func fetchPopularPhoto(complete: @escaping (Bool, [Photo], APIError?) -> ()) {
         isFetchPopularPhotoCalled = true
         completeClosure = complete
-
     }
 
     func fetchSuccess() {
-        completeClosure( true, completePhotos, nil )
+        completeClosure(true, completePhotos, nil)
     }
 
     func fetchFail(error: APIError?) {
-        completeClosure( false, completePhotos, error )
+        completeClosure(false, completePhotos, error)
     }
 
 }

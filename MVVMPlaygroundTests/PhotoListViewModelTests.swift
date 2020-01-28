@@ -32,7 +32,7 @@ class PhotoListViewModelTests: XCTestCase {
 
         // When
         sut.initFetch()
-    
+
         // Assert
         XCTAssert(apiServiceMock!.isFetchPopularPhotoCalled)
     }
@@ -72,7 +72,7 @@ class PhotoListViewModelTests: XCTestCase {
     }
     
     func test_populated_state_when_fetching() {
-        
+
         //Given
         var state: State = .empty
         let promise = XCTestExpectation(description: "Loading state updated to populated")
@@ -124,11 +124,11 @@ class PhotoListViewModelTests: XCTestCase {
         goToFetchPhotoFinished()
 
         //When
-        sut.userPressed( at: indexPath )
+        sut.userPressed(at: indexPath)
         
         //Assert
-        XCTAssertTrue( sut.isAllowSegue )
-        XCTAssertNotNil( sut.selectedPhoto )
+        XCTAssertTrue(sut.isAllowSegue)
+        XCTAssertNotNil(sut.selectedPhoto)
         
     }
     
@@ -145,12 +145,12 @@ class PhotoListViewModelTests: XCTestCase {
         }
         
         //When
-        sut.userPressed( at: indexPath )
+        sut.userPressed(at: indexPath)
         wait(for: [promise], timeout: 1.0)
         
         //Assert
-        XCTAssertFalse( sut.isAllowSegue )
-        XCTAssertNil( sut.selectedPhoto )
+        XCTAssertFalse(sut.isAllowSegue)
+        XCTAssertNil(sut.selectedPhoto)
     }
     
     func test_get_cell_view_model() {
@@ -165,41 +165,77 @@ class PhotoListViewModelTests: XCTestCase {
         let vm = sut.getCellViewModel(at: indexPath)
         
         //Assert
-        XCTAssertEqual( vm.titleText, testPhoto.name)
-        
+        XCTAssertEqual(vm.titleText, testPhoto.name)
     }
-    
+
     func test_cell_view_model() {
         //Given photos
         let today = Date()
-        let photo = Photo(id: 1, name: "Name", description: "desc", created_at: today, image_url: "url", for_sale: true, camera: "camera")
-        let photoWithoutCarmera = Photo(id: 1, name: "Name", description: "desc", created_at: Date(), image_url: "url", for_sale: true, camera: nil)
-        let photoWithoutDesc = Photo(id: 1, name: "Name", description: nil, created_at: Date(), image_url: "url", for_sale: true, camera: "camera")
-        let photoWithouCameraAndDesc = Photo(id: 1, name: "Name", description: nil, created_at: Date(), image_url: "url", for_sale: true, camera: nil)
+        let photo = Photo(id: 1,
+                          name: "Name",
+                          description: "desc",
+                          created_at: today,
+                          image_url: "url",
+                          for_sale: true,
+                          camera: "camera")
         
         // When creat cell view model
-        let cellViewModel = sut!.createCellViewModel( photo: photo )
-        let cellViewModelWithoutCamera = sut!.createCellViewModel( photo: photoWithoutCarmera )
-        let cellViewModelWithoutDesc = sut!.createCellViewModel( photo: photoWithoutDesc )
-        let cellViewModelWithoutCameraAndDesc = sut!.createCellViewModel( photo: photoWithouCameraAndDesc )
+        let cellViewModel = sut!.createCellViewModel(photo: photo)
+
         
         // Assert the correctness of display information
-        XCTAssertEqual( photo.name, cellViewModel.titleText )
-        XCTAssertEqual( photo.image_url, cellViewModel.imageUrl )
+        XCTAssertEqual(photo.name, cellViewModel.titleText)
+        XCTAssertEqual(photo.image_url, cellViewModel.imageUrl)
         
-        XCTAssertEqual(cellViewModel.descText, "\(photo.camera!) - \(photo.description!)" )
-        XCTAssertEqual(cellViewModelWithoutDesc.descText, photoWithoutDesc.camera! )
-        XCTAssertEqual(cellViewModelWithoutCamera.descText, photoWithoutCarmera.description! )
-        XCTAssertEqual(cellViewModelWithoutCameraAndDesc.descText, "" )
+        XCTAssertEqual(cellViewModel.descText, "\(photo.camera!) - \(photo.description!)")
+
         
         let year = Calendar.current.component(.year, from: today)
         let month = Calendar.current.component(.month, from: today)
         let day = Calendar.current.component(.day, from: today)
         
-        XCTAssertEqual( cellViewModel.dateText, String(format: "%d-%02d-%02d", year, month, day) )
-        
+        XCTAssertEqual(cellViewModel.dateText, String(format: "%d-%02d-%02d", year, month, day))
     }
 
+
+    func test_cell_view_model_without_camera() {
+        let photoWithoutCarmera = Photo(id: 1,
+                                        name: "Name",
+                                        description: "desc",
+                                        created_at: Date(),
+                                        image_url: "url",
+                                        for_sale: true,
+                                        camera: nil)
+
+        let cellViewModelWithoutCamera = sut!.createCellViewModel(photo: photoWithoutCarmera)
+        XCTAssertEqual(cellViewModelWithoutCamera.descText, photoWithoutCarmera.description!)
+    }
+
+    func test_cell_view_model_without_desc() {
+        let photoWithoutDesc = Photo(id: 1,
+                                     name: "Name",
+                                     description: nil,
+                                     created_at: Date(),
+                                     image_url: "url",
+                                     for_sale: true,
+                                     camera: "camera")
+
+        let cellViewModelWithoutDesc = sut!.createCellViewModel(photo: photoWithoutDesc)
+        XCTAssertEqual(cellViewModelWithoutDesc.descText, photoWithoutDesc.camera!)
+    }
+
+    func test_cell_view_model_without_camera_and_desc() {
+        let photoWithoutCameraAndDesc = Photo(id: 1,
+                                              name: "Name",
+                                              description: nil,
+                                              created_at: Date(),
+                                              image_url: "url",
+                                              for_sale: true,
+                                              camera: nil)
+
+        let cellViewModelWithoutCameraAndDesc = sut!.createCellViewModel(photo: photoWithoutCameraAndDesc)
+        XCTAssertEqual(cellViewModelWithoutCameraAndDesc.descText, "")
+    }
 }
 
 //MARK: State control

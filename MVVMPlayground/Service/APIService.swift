@@ -15,12 +15,12 @@ enum APIError: String, Error {
 }
 
 protocol APIServiceProtocol {
-    func fetchPopularPhoto( complete: @escaping ( _ success: Bool, _ photos: [Photo], _ error: APIError? )->() )
+    func fetchPopularPhoto(complete: @escaping (_ success: Bool, _ photos: [Photo], _ error: APIError?)->())
 }
 
 class APIService: APIServiceProtocol {
     // Simulate a long waiting for fetching 
-    func fetchPopularPhoto( complete: @escaping ( _ success: Bool, _ photos: [Photo], _ error: APIError?)->()) {
+    func fetchPopularPhoto(complete: @escaping (_ success: Bool, _ photos: [Photo], _ error: APIError?)->()) {
         DispatchQueue.global().async {
             sleep(3)
             let path = Bundle.main.path(forResource: "content", ofType: "json")!

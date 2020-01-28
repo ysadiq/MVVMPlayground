@@ -19,7 +19,7 @@ class PhotoListTableViewCell: UITableViewCell {
         didSet {
             nameLabel.text = photoListCellViewModel?.titleText
             descriptionLabel.text = photoListCellViewModel?.descText
-            mainImageView?.sd_setImage(with: URL( string: photoListCellViewModel?.imageUrl ?? "" ), completed: nil)
+            mainImageView?.sd_setImage(with: URL(string: photoListCellViewModel?.imageUrl ?? ""), completed: nil)
             dateLabel.text = photoListCellViewModel?.dateText
         }
     }

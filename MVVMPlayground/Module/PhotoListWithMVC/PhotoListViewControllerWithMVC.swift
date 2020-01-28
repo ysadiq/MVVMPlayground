@@ -83,7 +83,7 @@ extension PhotoListViewControllerWithMVC: UITableViewDelegate, UITableViewDataSo
             descText.append(camera)
         }
         if let description = photo.description {
-            descText.append( description )
+            descText.append(description)
         }
         cell.descriptionLabel.text = descText.joined(separator: " - ")
 
@@ -119,7 +119,7 @@ extension PhotoListViewControllerWithMVC: UITableViewDelegate, UITableViewDataSo
             return indexPath
         }else {
             let alert = UIAlertController(title: "Not for sale", message: "This item is not for sale", preferredStyle: .alert)
-            alert.addAction( UIAlertAction(title: "Ok", style: .cancel, handler: nil))
+            alert.addAction(UIAlertAction(title: "Ok", style: .cancel, handler: nil))
             self.present(alert, animated: true, completion: nil)
 
             return nil

@@ -42,7 +42,7 @@ class PhotoListViewController: UIViewController {
         viewModel.showAlertClosure = { [weak self] () in
             DispatchQueue.main.async {
                 if let message = self?.viewModel.alertMessage {
-                    self?.showAlert( message )
+                    self?.showAlert(message)
                 }
             }
         }
@@ -86,9 +86,9 @@ class PhotoListViewController: UIViewController {
 
     }
     
-    func showAlert( _ message: String ) {
+    func showAlert(_ message: String) {
         let alert = UIAlertController(title: "Alert", message: message, preferredStyle: .alert)
-        alert.addAction( UIAlertAction(title: "Ok", style: .cancel, handler: nil))
+        alert.addAction(UIAlertAction(title: "Ok", style: .cancel, handler: nil))
         self.present(alert, animated: true, completion: nil)
     }
     
@@ -105,7 +105,7 @@ extension PhotoListViewController: UITableViewDelegate, UITableViewDataSource {
             fatalError("Cell not exists in storyboard")
         }
         
-        let cellVM = viewModel.getCellViewModel( at: indexPath )
+        let cellVM = viewModel.getCellViewModel(at: indexPath)
         cell.photoListCellViewModel = cellVM
         
         return cell

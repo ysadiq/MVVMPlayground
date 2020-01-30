@@ -32,7 +32,7 @@ class PhotoListViewModelTests: XCTestCase {
 
         // When
         sut.initFetch()
-
+    
         // Assert
         XCTAssert(apiServiceMock!.isFetchPopularPhotoCalled)
     }
@@ -169,7 +169,7 @@ class PhotoListViewModelTests: XCTestCase {
     }
 
     func test_cell_view_model() {
-        //Given photos
+        // Given
         let today = Date()
         let photo = Photo(id: 1,
                           name: "Name",
@@ -179,62 +179,11 @@ class PhotoListViewModelTests: XCTestCase {
                           for_sale: true,
                           camera: "camera")
         
-        // When creat cell view model
+        // When
         let cellViewModel = sut!.createCellViewModel(photo: photo)
-
         
-        // Assert the correctness of display information
-        XCTAssertEqual(photo.name, cellViewModel.titleText)
-        XCTAssertEqual(photo.image_url, cellViewModel.imageUrl)
-        
+        // Then
         XCTAssertEqual(cellViewModel.descText, "\(photo.camera!) - \(photo.description!)")
-
-        
-        let year = Calendar.current.component(.year, from: today)
-        let month = Calendar.current.component(.month, from: today)
-        let day = Calendar.current.component(.day, from: today)
-        
-        XCTAssertEqual(cellViewModel.dateText, String(format: "%d-%02d-%02d", year, month, day))
-    }
-
-
-    func test_cell_view_model_without_camera() {
-        let photoWithoutCarmera = Photo(id: 1,
-                                        name: "Name",
-                                        description: "desc",
-                                        created_at: Date(),
-                                        image_url: "url",
-                                        for_sale: true,
-                                        camera: nil)
-
-        let cellViewModelWithoutCamera = sut!.createCellViewModel(photo: photoWithoutCarmera)
-        XCTAssertEqual(cellViewModelWithoutCamera.descText, photoWithoutCarmera.description!)
-    }
-
-    func test_cell_view_model_without_desc() {
-        let photoWithoutDesc = Photo(id: 1,
-                                     name: "Name",
-                                     description: nil,
-                                     created_at: Date(),
-                                     image_url: "url",
-                                     for_sale: true,
-                                     camera: "camera")
-
-        let cellViewModelWithoutDesc = sut!.createCellViewModel(photo: photoWithoutDesc)
-        XCTAssertEqual(cellViewModelWithoutDesc.descText, photoWithoutDesc.camera!)
-    }
-
-    func test_cell_view_model_without_camera_and_desc() {
-        let photoWithoutCameraAndDesc = Photo(id: 1,
-                                              name: "Name",
-                                              description: nil,
-                                              created_at: Date(),
-                                              image_url: "url",
-                                              for_sale: true,
-                                              camera: nil)
-
-        let cellViewModelWithoutCameraAndDesc = sut!.createCellViewModel(photo: photoWithoutCameraAndDesc)
-        XCTAssertEqual(cellViewModelWithoutCameraAndDesc.descText, "")
     }
 }
 

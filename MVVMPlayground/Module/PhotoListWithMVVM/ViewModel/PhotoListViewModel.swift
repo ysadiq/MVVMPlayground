@@ -87,9 +87,9 @@ class PhotoListViewModel {
         dateFormatter.dateFormat = "yyyy-MM-dd"
         
         return PhotoListCellViewModel(titleText: photo.name,
-                                       descText: desc,
-                                       imageUrl: photo.image_url,
-                                       dateText: dateFormatter.string(from: photo.created_at))
+                                      descText: desc,
+                                      imageUrl: photo.image_url,
+                                      dateText: dateFormatter.string(from: photo.created_at))
     }
     
     private func processFetchedPhoto(photos: [Photo]) {
@@ -114,6 +114,5 @@ extension PhotoListViewModel {
             self.selectedPhoto = nil
             self.alertMessage = "This item is not for sale"
         }
-        
     }
 }

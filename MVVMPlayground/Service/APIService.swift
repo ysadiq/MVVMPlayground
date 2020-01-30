@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import Alamofire
 
 enum APIError: String, Error {
     case noNetwork = "No Network"
@@ -15,12 +16,12 @@ enum APIError: String, Error {
 }
 
 protocol APIServiceProtocol {
-    func fetchPopularPhoto(complete: @escaping (_ success: Bool, _ photos: [Photo], _ error: APIError?)->())
+    func fetchPopularPhoto(complete: @escaping (_ success: Bool, _ photos: [Photo]?, _ error: Error?)->())
 }
 
 class APIService: APIServiceProtocol {
     // Simulate a long waiting for fetching 
-    func fetchPopularPhoto(complete: @escaping (_ success: Bool, _ photos: [Photo], _ error: APIError?)->()) {
+    func fetchPopularPhoto(complete: @escaping (_ success: Bool, _ photos: [Photo]?, _ error: Error?)->()) {
         DispatchQueue.global().async {
             sleep(3)
             let path = Bundle.main.path(forResource: "content", ofType: "json")!

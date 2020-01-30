@@ -14,9 +14,9 @@ class ApiServiceMock: APIServiceProtocol {
     var isFetchPopularPhotoCalled = false
 
     var completePhotos: [Photo] = [Photo]()
-    var completeClosure: ((Bool, [Photo], APIError?) -> ())!
+    var completeClosure: ((Bool, [Photo]?, Error?) -> ())!
 
-    func fetchPopularPhoto(complete: @escaping (Bool, [Photo], APIError?) -> ()) {
+    func fetchPopularPhoto(complete: @escaping (Bool, [Photo]?, Error?) -> ()) {
         isFetchPopularPhotoCalled = true
         completeClosure = complete
     }

@@ -24,19 +24,49 @@ class APIServiceTests: XCTestCase {
     }
 
     func test_fetch_popular_photos() {
-        // When fetch popular photo
-        let expect = XCTestExpectation(description: "callback")
+        // 1
+        let promise = XCTestExpectation(description: "Fetch photos completed")
 
+        // When
         sut.fetchPopularPhoto(complete: { (success, photos, error) in
-            expect.fulfill()
+            // Then
+            guard error == nil,
+                let photos = photos else {
+                    if let errorDesc = error?.localizedDescription {
+                        XCTFail("Error: \(errorDesc)")
+                    }
+                    return
+            }
+            
             XCTAssertEqual(photos.count, 20)
             for photo in photos {
                 XCTAssertNotNil(photo.id)
             }
-            
+
+            // 2
+            promise.fulfill()
         })
 
-        wait(for: [expect], timeout: 3.1)
+        // 3
+        wait(for: [promise], timeout: 3.1)
     }
-    
+
+    func test_fetch_popular_photos_completes() {
+        // Given
+        let promise = XCTestExpectation(description: "Fetch photos completed")
+        var responseError: Error?
+        var responsePhotos: [Photo]?
+
+        // When
+        sut.fetchPopularPhoto(complete: { (success, photos, error) in
+            responseError = error
+            responsePhotos = photos
+            promise.fulfill()
+        })
+        wait(for: [promise], timeout: 3.1)
+
+        // Then
+        XCTAssertNil(responseError)
+        XCTAssertEqual(responsePhotos?.count, 20)
+    }
 }

@@ -27,31 +27,32 @@ class PhotoListViewModelTests: XCTestCase {
     }
     
     func test_fetch_photo() {
-        // Given
-        apiServiceMock.completePhotos = [Photo]()
-
         // When
         sut.initFetch()
     
-        // Assert
-        XCTAssert(apiServiceMock!.isFetchPopularPhotoCalled)
+        // Then
+        XCTAssert(apiServiceMock.isFetchPopularPhotoCalled)
     }
     
     func test_fetch_photo_fail() {
-        
-        // Given a failed fetch with a certain failure
+        // Given
         let error = APIError.permissionDenied
-        
+
         // When
         sut.initFetch()
-        
         apiServiceMock.fetchFail(error: error)
-        
-        // Sut should display predefined error message
-        XCTAssertEqual(sut.alertMessage, error.rawValue)
-        
+
+        // Then
+        XCTAssertEqual(sut.alertMessage, error.localizedDescription)
     }
-    
+
+    func test_user_press_for_sale_item() {
+        // Given
+
+        apiServiceMock.completePhotos = StubGenerator().stubPhotos()
+
+        sut.initFetch()
+        apiServiceMock.fetchSuccess()
     func test_create_cell_view_model() {
         // Given
         let photos = StubGenerator().stubPhotos()

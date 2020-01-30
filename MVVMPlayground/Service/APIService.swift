@@ -16,12 +16,12 @@ enum APIError: String, Error {
 }
 
 protocol APIServiceProtocol {
-    func fetchPopularPhoto(complete: @escaping (_ success: Bool, _ photos: [Photo]?, _ error: Error?)->())
+    func fetchPopularPhoto(complete: @escaping (_ photos: [Photo]?, _ error: Error?)->())
 }
 
 class APIService: APIServiceProtocol {
     // Simulate a long waiting for fetching 
-    func fetchPopularPhoto(complete: @escaping (_ success: Bool, _ photos: [Photo]?, _ error: Error?)->()) {
+    func fetchPopularPhoto(complete: @escaping (_ photos: [Photo]?, _ error: Error?)->()) {
         DispatchQueue.global().async {
             sleep(3)
             let path = Bundle.main.path(forResource: "content", ofType: "json")!
@@ -29,7 +29,7 @@ class APIService: APIServiceProtocol {
             let decoder = JSONDecoder()
             decoder.dateDecodingStrategy = .iso8601
             let photos = try! decoder.decode(Photos.self, from: data)
-            complete(true, photos.photos, nil)
+            complete(photos.photos, nil)
         }
     }
 }

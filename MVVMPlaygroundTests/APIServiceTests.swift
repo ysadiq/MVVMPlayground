@@ -28,7 +28,7 @@ class APIServiceTests: XCTestCase {
         let promise = XCTestExpectation(description: "Fetch photos completed")
 
         // When
-        sut.fetchPopularPhoto(complete: { (success, photos, error) in
+        sut.fetchPopularPhoto(complete: { (photos, error) in
             // Then
             guard error == nil,
                 let photos = photos else {
@@ -58,7 +58,7 @@ class APIServiceTests: XCTestCase {
         var responsePhotos: [Photo]?
 
         // When
-        sut.fetchPopularPhoto(complete: { (success, photos, error) in
+        sut.fetchPopularPhoto(complete: { (photos, error) in
             responseError = error
             responsePhotos = photos
             promise.fulfill()

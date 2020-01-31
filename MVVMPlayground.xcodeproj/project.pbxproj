@@ -11,6 +11,7 @@
 		9951575E234333C700E95F79 /* PhotoListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9951575D234333C700E95F79 /* PhotoListTableViewCell.swift */; };
 		996B8727236AD54000285754 /* State.swift in Sources */ = {isa = PBXBuildFile; fileRef = 996B8726236AD54000285754 /* State.swift */; };
 		996B8729236AF27200285754 /* PhotoListCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 996B8728236AF27200285754 /* PhotoListCellViewModel.swift */; };
+		996E89BA23E4D2BC00A58480 /* StubGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 996E89B923E4D2BC00A58480 /* StubGenerator.swift */; };
 		B5296F0A1F809ADF003CDD90 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5296F091F809ADF003CDD90 /* AppDelegate.swift */; };
 		B5296F0F1F809ADF003CDD90 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B5296F0D1F809ADF003CDD90 /* Main.storyboard */; };
 		B5296F111F809ADF003CDD90 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B5296F101F809ADF003CDD90 /* Assets.xcassets */; };
@@ -23,6 +24,16 @@
 		B53F33DE1F839F2B00CCABB5 /* PhotoListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B53F33DD1F839F2B00CCABB5 /* PhotoListViewModel.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		996E89AE23E48BC100A58480 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B5296EFE1F809ADF003CDD90 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = B5296F051F809ADF003CDD90;
+			remoteInfo = MVVMPlayground;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
 		02FEC0F3AE27D2597539D389 /* Pods-MVVMPlaygroundTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MVVMPlaygroundTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MVVMPlaygroundTests/Pods-MVVMPlaygroundTests.debug.xcconfig"; sourceTree = "<group>"; };
 		35E899F724C08CDBF5386960 /* Pods-MVVMPlaygroundTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MVVMPlaygroundTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-MVVMPlaygroundTests/Pods-MVVMPlaygroundTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -34,6 +45,9 @@
 		9951575D234333C700E95F79 /* PhotoListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoListTableViewCell.swift; sourceTree = "<group>"; };
 		996B8726236AD54000285754 /* State.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = State.swift; sourceTree = "<group>"; };
 		996B8728236AF27200285754 /* PhotoListCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoListCellViewModel.swift; sourceTree = "<group>"; };
+		996E89A923E48BC100A58480 /* MVVMPlaygroundTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MVVMPlaygroundTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		996E89AD23E48BC100A58480 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		996E89B923E4D2BC00A58480 /* StubGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StubGenerator.swift; sourceTree = "<group>"; };
 		B5296F061F809ADF003CDD90 /* MVVMPlayground.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MVVMPlayground.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B5296F091F809ADF003CDD90 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B5296F0E1F809ADF003CDD90 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -50,6 +64,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		996E89A623E48BC100A58480 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		B5296F031F809ADF003CDD90 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -101,10 +122,20 @@
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
+		996E89AA23E48BC100A58480 /* MVVMPlaygroundTests */ = {
+			isa = PBXGroup;
+			children = (
+				996E89B923E4D2BC00A58480 /* StubGenerator.swift */,
+				996E89AD23E48BC100A58480 /* Info.plist */,
+			);
+			path = MVVMPlaygroundTests;
+			sourceTree = "<group>";
+		};
 		B5296EFD1F809ADF003CDD90 = {
 			isa = PBXGroup;
 			children = (
 				B5296F081F809ADF003CDD90 /* MVVMPlayground */,
+				996E89AA23E48BC100A58480 /* MVVMPlaygroundTests */,
 				B5296F071F809ADF003CDD90 /* Products */,
 				C2DFBDCC67CC885C0387E711 /* Pods */,
 				0620D9102CCD149D32850E4E /* Frameworks */,
@@ -115,6 +146,7 @@
 			isa = PBXGroup;
 			children = (
 				B5296F061F809ADF003CDD90 /* MVVMPlayground.app */,
+				996E89A923E48BC100A58480 /* MVVMPlaygroundTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -189,6 +221,24 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		996E89A823E48BC100A58480 /* MVVMPlaygroundTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 996E89B023E48BC100A58480 /* Build configuration list for PBXNativeTarget "MVVMPlaygroundTests" */;
+			buildPhases = (
+				996E89A523E48BC100A58480 /* Sources */,
+				996E89A623E48BC100A58480 /* Frameworks */,
+				996E89A723E48BC100A58480 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				996E89AF23E48BC100A58480 /* PBXTargetDependency */,
+			);
+			name = MVVMPlaygroundTests;
+			productName = MVVMPlaygroundTests;
+			productReference = 996E89A923E48BC100A58480 /* MVVMPlaygroundTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		B5296F051F809ADF003CDD90 /* MVVMPlayground */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = B5296F231F809ADF003CDD90 /* Build configuration list for PBXNativeTarget "MVVMPlayground" */;
@@ -214,10 +264,15 @@
 		B5296EFE1F809ADF003CDD90 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 0900;
+				LastSwiftUpdateCheck = 1120;
 				LastUpgradeCheck = 1000;
 				ORGANIZATIONNAME = ST.Huang;
 				TargetAttributes = {
+					996E89A823E48BC100A58480 = {
+						CreatedOnToolsVersion = 11.2.1;
+						ProvisioningStyle = Automatic;
+						TestTargetID = B5296F051F809ADF003CDD90;
+					};
 					B5296F051F809ADF003CDD90 = {
 						CreatedOnToolsVersion = 9.0;
 						ProvisioningStyle = Manual;
@@ -238,11 +293,19 @@
 			projectRoot = "";
 			targets = (
 				B5296F051F809ADF003CDD90 /* MVVMPlayground */,
+				996E89A823E48BC100A58480 /* MVVMPlaygroundTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		996E89A723E48BC100A58480 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		B5296F041F809ADF003CDD90 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -298,6 +361,14 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		996E89A523E48BC100A58480 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				996E89BA23E4D2BC00A58480 /* StubGenerator.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		B5296F021F809ADF003CDD90 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -315,6 +386,14 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		996E89AF23E48BC100A58480 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = B5296F051F809ADF003CDD90 /* MVVMPlayground */;
+			targetProxy = 996E89AE23E48BC100A58480 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		B5296F0D1F809ADF003CDD90 /* Main.storyboard */ = {
@@ -336,6 +415,45 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		996E89B123E48BC100A58480 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 93L23JH8CL;
+				INFOPLIST_FILE = MVVMPlaygroundTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ysaddiq.MVVMPlaygroundTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MVVMPlayground.app/MVVMPlayground";
+			};
+			name = Debug;
+		};
+		996E89B223E48BC100A58480 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 93L23JH8CL;
+				INFOPLIST_FILE = MVVMPlaygroundTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ysaddiq.MVVMPlaygroundTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MVVMPlayground.app/MVVMPlayground";
+			};
+			name = Release;
+		};
 		B5296F211F809ADF003CDD90 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -484,6 +602,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		996E89B023E48BC100A58480 /* Build configuration list for PBXNativeTarget "MVVMPlaygroundTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				996E89B123E48BC100A58480 /* Debug */,
+				996E89B223E48BC100A58480 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		B5296F011F809ADF003CDD90 /* Build configuration list for PBXProject "MVVMPlayground" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

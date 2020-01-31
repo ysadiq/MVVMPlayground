@@ -7,7 +7,6 @@
 //
 
 import Foundation
-import Alamofire
 
 enum APIError: String, Error {
     case noNetwork = "No Network"
@@ -24,7 +23,10 @@ class APIService: APIServiceProtocol {
     func fetchPopularPhoto(complete: @escaping (_ photos: [Photo]?, _ error: Error?)->()) {
         DispatchQueue.global().async {
             sleep(3)
-            let path = Bundle.main.path(forResource: "content", ofType: "json")!
+            guard let path = Bundle.main.path(forResource: "content", ofType: "json") else {
+                complete(nil, APIError.noNetwork)
+                return
+            }
             let data = try! Data(contentsOf: URL(fileURLWithPath: path))
             let decoder = JSONDecoder()
             decoder.dateDecodingStrategy = .iso8601

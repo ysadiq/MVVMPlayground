@@ -23,7 +23,6 @@ class APIService: APIServiceProtocol {
     // Simulate a long waiting for fetching
     func fetchPopularPhoto(complete: @escaping (_ photos: [Photo]?, _ error: APIError?)->()) {
         DispatchQueue.global().async {
-            sleep(3)
             guard let path = Bundle.main.path(forResource: "content", ofType: "json") else {
                 complete(nil, APIError.notFound)
                 return
@@ -32,6 +31,7 @@ class APIService: APIServiceProtocol {
             let decoder = JSONDecoder()
             decoder.dateDecodingStrategy = .iso8601
             let photos = try! decoder.decode(Photos.self, from: data)
+            sleep(3)
             complete(photos.photos, nil)
         }
     }

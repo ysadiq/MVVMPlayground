@@ -23,7 +23,7 @@ class APIService: APIServiceProtocol {
     // Simulate a long waiting for fetching 
     func fetchPopularPhoto(complete: @escaping (_ photos: [Photo]?, _ error: APIError?)->()) {
         DispatchQueue.global().async {
-            guard let path = Bundle.main.path(forResource: "contents", ofType: "json") else {
+            guard let path = Bundle.main.path(forResource: "content", ofType: "json") else {
                 complete(nil, APIError.notFound)
                 return
             }

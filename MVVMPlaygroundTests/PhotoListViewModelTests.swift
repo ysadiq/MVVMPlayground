@@ -36,14 +36,14 @@ class PhotoListViewModelTests: XCTestCase {
     
     func test_fetch_photo_fail() {
         // Given
-        let error = APIError.permissionDenied
+        let error = APIError.notFound
 
         // When
         sut.initFetch()
         apiServiceMock.fetchFail(error: error)
 
         // Then
-        XCTAssertEqual(sut.alertMessage, error.localizedDescription)
+        XCTAssertEqual(sut.alertMessage, error.rawValue)
     }
 
     func test_user_press_for_sale_item() {

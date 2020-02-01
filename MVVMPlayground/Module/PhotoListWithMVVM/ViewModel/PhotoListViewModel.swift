@@ -59,7 +59,7 @@ class PhotoListViewModel {
             guard error == nil,
                 let photos = photos else {
                 self.state = .error
-                self.alertMessage = error?.localizedDescription
+                self.alertMessage = error?.rawValue
                 return
             }
 

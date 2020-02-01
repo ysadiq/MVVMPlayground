@@ -32,7 +32,7 @@ class APIServiceTests: XCTestCase {
             // Then
             guard error == nil,
                 let photos = photos else {
-                    if let errorDesc = error?.localizedDescription {
+                    if let errorDesc = error?.rawValue {
                         XCTFail("Error: \(errorDesc)")
                     }
                     return

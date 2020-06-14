@@ -13,6 +13,7 @@
 		996B8727236AD54000285754 /* State.swift in Sources */ = {isa = PBXBuildFile; fileRef = 996B8726236AD54000285754 /* State.swift */; };
 		996B8729236AF27200285754 /* PhotoListCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 996B8728236AF27200285754 /* PhotoListCellViewModel.swift */; };
 		99ADA5A524960A4A00AA89C4 /* UIImageView+Download.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99ADA5A424960A4A00AA89C4 /* UIImageView+Download.swift */; };
+		99ADA5A72496700300AA89C4 /* APIServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99ADA5A62496700300AA89C4 /* APIServiceProtocol.swift */; };
 		B5296F0A1F809ADF003CDD90 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5296F091F809ADF003CDD90 /* AppDelegate.swift */; };
 		B5296F0F1F809ADF003CDD90 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B5296F0D1F809ADF003CDD90 /* Main.storyboard */; };
 		B5296F111F809ADF003CDD90 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B5296F101F809ADF003CDD90 /* Assets.xcassets */; };
@@ -46,6 +47,7 @@
 		996B8726236AD54000285754 /* State.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = State.swift; sourceTree = "<group>"; };
 		996B8728236AF27200285754 /* PhotoListCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoListCellViewModel.swift; sourceTree = "<group>"; };
 		99ADA5A424960A4A00AA89C4 /* UIImageView+Download.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Download.swift"; sourceTree = "<group>"; };
+		99ADA5A62496700300AA89C4 /* APIServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIServiceProtocol.swift; sourceTree = "<group>"; };
 		B5296F061F809ADF003CDD90 /* MVVMPlayground.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MVVMPlayground.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B5296F091F809ADF003CDD90 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B5296F0E1F809ADF003CDD90 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -195,6 +197,7 @@
 			isa = PBXGroup;
 			children = (
 				B5296F2F1F809F0E003CDD90 /* APIService.swift */,
+				99ADA5A62496700300AA89C4 /* APIServiceProtocol.swift */,
 				B5296F351F812CD9003CDD90 /* content.json */,
 			);
 			path = Service;
@@ -254,7 +257,7 @@
 			attributes = {
 				LastSwiftUpdateCheck = 0900;
 				LastUpgradeCheck = 1000;
-				ORGANIZATIONNAME = ST.Huang;
+				ORGANIZATIONNAME = ysaddiq;
 				TargetAttributes = {
 					B5296F051F809ADF003CDD90 = {
 						CreatedOnToolsVersion = 9.0;
@@ -320,6 +323,7 @@
 				B5296F2D1F809EF2003CDD90 /* photo.swift in Sources */,
 				B5296F301F809F0E003CDD90 /* APIService.swift in Sources */,
 				9951575E234333C700E95F79 /* PhotoListTableViewCell.swift in Sources */,
+				99ADA5A72496700300AA89C4 /* APIServiceProtocol.swift in Sources */,
 				B5296F3C1F82A39C003CDD90 /* PhotoDetailViewController.swift in Sources */,
 				B5296F0A1F809ADF003CDD90 /* AppDelegate.swift in Sources */,
 				996B8727236AD54000285754 /* State.swift in Sources */,
@@ -486,7 +490,7 @@
 				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = MVVMPlayground/Others/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "ShihTing-Huang.MVVMPlayground";
+				PRODUCT_BUNDLE_IDENTIFIER = ysaddiq.MVVMPlayground;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.2;
@@ -502,7 +506,7 @@
 				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = MVVMPlayground/Others/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "ShihTing-Huang.MVVMPlayground";
+				PRODUCT_BUNDLE_IDENTIFIER = ysaddiq.MVVMPlayground;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.2;
@@ -516,10 +520,10 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = HK675VM357;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = MVVMPlaygroundTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "ShihTing-Huang.MVVMPlaygroundTests";
+				PRODUCT_BUNDLE_IDENTIFIER = ysaddiq.MVVMPlaygroundTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -533,10 +537,10 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = HK675VM357;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = MVVMPlaygroundTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "ShihTing-Huang.MVVMPlaygroundTests";
+				PRODUCT_BUNDLE_IDENTIFIER = ysaddiq.MVVMPlaygroundTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";

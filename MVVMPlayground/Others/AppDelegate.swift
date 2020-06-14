@@ -2,8 +2,8 @@
 //  AppDelegate.swift
 //  MVVMPlayground
 //
-//  Created by Neo on 01/10/2017.
-//  Copyright © 2017 ST.Huang. All rights reserved.
+//  Created by Yahya Saddiq on 01/10/2017.
+//  Copyright © 2017 ysaddiq. All rights reserved.
 //
 
 import UIKit

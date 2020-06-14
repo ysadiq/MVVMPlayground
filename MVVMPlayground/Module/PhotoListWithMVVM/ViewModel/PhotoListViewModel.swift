@@ -2,18 +2,15 @@
 //  PhotoListViewModel.swift
 //  MVVMPlayground
 //
-//  Created by Neo on 03/10/2017.
-//  Copyright © 2017 ST.Huang. All rights reserved.
+//  Created by Yahya Saddiq on 03/10/2017.
+//  Copyright © 2017 ysaddiq. All rights reserved.
 //
 
 import Foundation
 
 class PhotoListViewModel {
-    
     let apiService: APIServiceProtocol
-
     private var photos: [Photo] = [Photo]()
-    
     private var cellViewModels: [PhotoListCellViewModel] = [PhotoListCellViewModel]() {
         didSet {
             self.reloadTableViewClosure?()
@@ -26,21 +23,17 @@ class PhotoListViewModel {
             self.updateLoadingStatus?()
         }
     }
-    
     var alertMessage: String? {
         didSet {
             self.showAlertClosure?()
         }
     }
-    
     var numberOfCells: Int {
         return cellViewModels.count
     }
     
     var isAllowSegue: Bool = false
-    
     var selectedPhoto: Photo?
-
     var reloadTableViewClosure: (()->())?
     var showAlertClosure: (()->())?
     var updateLoadingStatus: (()->())?

@@ -14,6 +14,10 @@
 		9951576223433CE700E95F79 /* StubGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9951576123433CE700E95F79 /* StubGenerator.swift */; };
 		996B8727236AD54000285754 /* State.swift in Sources */ = {isa = PBXBuildFile; fileRef = 996B8726236AD54000285754 /* State.swift */; };
 		996B8729236AF27200285754 /* PhotoListCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 996B8728236AF27200285754 /* PhotoListCellViewModel.swift */; };
+		996E89BA23E4D2BC00A58480 /* StubGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 996E89B923E4D2BC00A58480 /* StubGenerator.swift */; };
+		9988C3A223E609EB001F7F3A /* PhotoListViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9988C3A123E609EB001F7F3A /* PhotoListViewModelTests.swift */; };
+		9988C3A423E60CCB001F7F3A /* APIServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9988C3A323E60CCB001F7F3A /* APIServiceTests.swift */; };
+		9988C3A623E611AC001F7F3A /* APIServiceMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9988C3A523E611AC001F7F3A /* APIServiceMock.swift */; };
 		B5296F0A1F809ADF003CDD90 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5296F091F809ADF003CDD90 /* AppDelegate.swift */; };
 		B5296F0F1F809ADF003CDD90 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B5296F0D1F809ADF003CDD90 /* Main.storyboard */; };
 		B5296F111F809ADF003CDD90 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B5296F101F809ADF003CDD90 /* Assets.xcassets */; };
@@ -51,6 +55,12 @@
 		9951576123433CE700E95F79 /* StubGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StubGenerator.swift; sourceTree = "<group>"; };
 		996B8726236AD54000285754 /* State.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = State.swift; sourceTree = "<group>"; };
 		996B8728236AF27200285754 /* PhotoListCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoListCellViewModel.swift; sourceTree = "<group>"; };
+		996E89A923E48BC100A58480 /* MVVMPlaygroundTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MVVMPlaygroundTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		996E89AD23E48BC100A58480 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		996E89B923E4D2BC00A58480 /* StubGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StubGenerator.swift; sourceTree = "<group>"; };
+		9988C3A123E609EB001F7F3A /* PhotoListViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoListViewModelTests.swift; sourceTree = "<group>"; };
+		9988C3A323E60CCB001F7F3A /* APIServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIServiceTests.swift; sourceTree = "<group>"; };
+		9988C3A523E611AC001F7F3A /* APIServiceMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIServiceMock.swift; sourceTree = "<group>"; };
 		B5296F061F809ADF003CDD90 /* MVVMPlayground.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MVVMPlayground.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B5296F091F809ADF003CDD90 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B5296F0E1F809ADF003CDD90 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -128,6 +138,18 @@
 				996B8726236AD54000285754 /* State.swift */,
 			);
 			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		996E89AA23E48BC100A58480 /* MVVMPlaygroundTests */ = {
+			isa = PBXGroup;
+			children = (
+				996E89B923E4D2BC00A58480 /* StubGenerator.swift */,
+				996E89AD23E48BC100A58480 /* Info.plist */,
+				9988C3A123E609EB001F7F3A /* PhotoListViewModelTests.swift */,
+				9988C3A323E60CCB001F7F3A /* APIServiceTests.swift */,
+				9988C3A523E611AC001F7F3A /* APIServiceMock.swift */,
+			);
+			path = MVVMPlaygroundTests;
 			sourceTree = "<group>";
 		};
 		B5296EFD1F809ADF003CDD90 = {
@@ -392,6 +414,17 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		996E89A523E48BC100A58480 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9988C3A623E611AC001F7F3A /* APIServiceMock.swift in Sources */,
+				9988C3A423E60CCB001F7F3A /* APIServiceTests.swift in Sources */,
+				996E89BA23E4D2BC00A58480 /* StubGenerator.swift in Sources */,
+				9988C3A223E609EB001F7F3A /* PhotoListViewModelTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		B5296F021F809ADF003CDD90 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;

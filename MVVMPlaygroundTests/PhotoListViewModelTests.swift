@@ -2,15 +2,14 @@
 //  PhotoListViewModelTests.swift
 //  MVVMPlaygroundTests
 //
-//  Created by Neo on 03/10/2017.
-//  Copyright © 2017 ST.Huang. All rights reserved.
+//  Created by Yahya Saddiq on 2/1/20.
+//  Copyright © 2020 ST.Huang. All rights reserved.
 //
 
 import XCTest
 @testable import MVVMPlayground
 
 class PhotoListViewModelTests: XCTestCase {
-    
     var sut: PhotoListViewModel!
     var apiServiceMock: ApiServiceMock!
 
@@ -25,6 +24,12 @@ class PhotoListViewModelTests: XCTestCase {
         apiServiceMock = nil
         super.tearDown()
     }
+
+    // A test method’s name always begins with test, followed by a description of what it tests.
+
+    // It’s good practice to format the test into given, when and then sections
+    // Given: Here, you set up any values needed.
+    // In this example, today’s date and a dummy photo object are created.
     
     func test_fetch_photo() {
         // When
@@ -180,11 +185,10 @@ class PhotoListViewModelTests: XCTestCase {
                           for_sale: true,
                           camera: "camera")
 
-        // When
+        // When: In this section, you’ll execute the code being tested: Call createCellViewModel(photo:).
         let cellViewModel = sut!.createCellViewModel(photo: photo)
 
-        // Then
+        // Then: This is the section where you’ll assert the result you expect with a message that prints if the test fails.
         XCTAssertEqual(cellViewModel.descText, "\(photo.camera!) - \(photo.description!)")
     }
 }
-

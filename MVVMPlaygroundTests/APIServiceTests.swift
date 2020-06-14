@@ -2,17 +2,16 @@
 //  APIServiceTests.swift
 //  MVVMPlaygroundTests
 //
-//  Created by Neo on 01/10/2017.
-//  Copyright © 2017 ST.Huang. All rights reserved.
+//  Created by Yahya Saddiq on 2/1/20.
+//  Copyright © 2020 ST.Huang. All rights reserved.
 //
 
 import XCTest
 @testable import MVVMPlayground
 
 class APIServiceTests: XCTestCase {
-    
     var sut: APIService!
-    
+
     override func setUp() {
         super.setUp()
         sut = APIService()

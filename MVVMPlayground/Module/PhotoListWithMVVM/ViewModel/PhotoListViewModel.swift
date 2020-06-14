@@ -44,7 +44,7 @@ class PhotoListViewModel {
     
     func initFetch() {
         state = .loading
-        apiService.fetchPopularPhoto { [weak self] (photos, error) in
+        apiService.fetchPhotos(from: APIService.popularPhotoURL()) { [weak self] (photos, error) in
             guard let self = self else {
                 return
             }

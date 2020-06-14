@@ -11,7 +11,7 @@ import Foundation
 
 class StubGenerator {
     func stubPhotos() -> [Photo] {
-        let path = Bundle.unitTest.path(forResource: "content(stub)", ofType: "json")!
+        let path = Bundle.unitTest.path(forResource: "stub", ofType: "json")!
         let data = try! Data(contentsOf: URL(fileURLWithPath: path))
         let decoder = JSONDecoder()
         decoder.dateDecodingStrategy = .iso8601

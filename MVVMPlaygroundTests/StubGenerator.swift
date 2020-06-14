@@ -3,7 +3,7 @@
 //  MVVMPlaygroundTests
 //
 //  Created by Yahya Saddiq on 10/1/19.
-//  Copyright © 2019 ST.Huang. All rights reserved.
+//  Copyright © 2019 ysaddiq. All rights reserved.
 //
 
 import Foundation
@@ -11,7 +11,7 @@ import Foundation
 
 class StubGenerator {
     func stubPhotos() -> [Photo] {
-        let path = Bundle.main.path(forResource: "content", ofType: "json")!
+        let path = Bundle.unitTest.path(forResource: "content(stub)", ofType: "json")!
         let data = try! Data(contentsOf: URL(fileURLWithPath: path))
         let decoder = JSONDecoder()
         decoder.dateDecodingStrategy = .iso8601

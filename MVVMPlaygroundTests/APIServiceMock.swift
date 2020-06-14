@@ -3,7 +3,7 @@
 //  MVVMPlaygroundTests
 //
 //  Created by Yahya Saddiq on 2/1/20.
-//  Copyright © 2020 ST.Huang. All rights reserved.
+//  Copyright © 2020 ysaddiq. All rights reserved.
 //
 
 import Foundation
@@ -18,7 +18,7 @@ class APIServiceMock: APIServiceProtocol{
     var completePhotos: [Photo] = [Photo]()
     var completeClosure: (([Photo]?, APIError?) -> ())!
 
-    func fetchPopularPhoto(complete: @escaping ([Photo]?, APIError?) -> ()) {
+    func fetchPopularPhoto(from url: URL?, complete: @escaping ([Photo]?, APIError?) -> ()) {
         isFetchPopularPhotoCalled = true
         completeClosure = complete
     }

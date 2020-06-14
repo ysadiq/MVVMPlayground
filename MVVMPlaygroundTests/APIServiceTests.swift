@@ -3,7 +3,7 @@
 //  MVVMPlaygroundTests
 //
 //  Created by Yahya Saddiq on 2/1/20.
-//  Copyright © 2020 ST.Huang. All rights reserved.
+//  Copyright © 2020 ysaddiq. All rights reserved.
 //
 
 import XCTest
@@ -27,7 +27,12 @@ class APIServiceTests: XCTestCase {
         let promise = XCTestExpectation(description: "Fetch photos completed")
 
         // When
-        sut.fetchPopularPhoto(complete: { (photos, error) in
+        guard let bundle = Bundle.unitTest.path(forResource: "content(stub)", ofType: "json") else {
+            XCTFail("Error: content not found")
+            return
+        }
+
+        sut.fetchPopularPhoto(from: URL(fileURLWithPath: bundle), complete: { (photos, error) in
             // Then
             guard error == nil,
                 let photos = photos else {
@@ -38,9 +43,6 @@ class APIServiceTests: XCTestCase {
             }
             
             XCTAssertEqual(photos.count, 20)
-            for photo in photos {
-                XCTAssertNotNil(photo.id)
-            }
 
             // 2
             promise.fulfill()

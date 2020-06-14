@@ -49,7 +49,7 @@ class APIServiceTests: XCTestCase {
         })
 
         // 3
-        wait(for: [promise], timeout: 3.1)
+        wait(for: [promise], timeout: 1)
     }
 
     func test_fetch_popular_photos_completes() {
@@ -64,10 +64,9 @@ class APIServiceTests: XCTestCase {
             responsePhotos = photos
             promise.fulfill()
         })
-        wait(for: [promise], timeout: 3.1)
+        wait(for: [promise], timeout: 1)
 
         // Then
         XCTAssertNil(responseError)
-        XCTAssertEqual(responsePhotos?.count, 20)
     }
 }

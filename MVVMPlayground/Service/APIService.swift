@@ -24,18 +24,21 @@ class APIService: APIServiceProtocol {
             return
         }
 
-        DispatchQueue.global().async {
-            let data = try! Data(contentsOf: url)
-            let decoder = JSONDecoder()
-            decoder.dateDecodingStrategy = .iso8601
-            let photos = try! decoder.decode(Photos.self, from: data)
-            sleep(3)
-            complete(photos.photos, nil)
-        }
+        URLSession.shared.dataTask(with: url) { (data, response, error) in
+            guard let data = data else { return }
+            do {
+                let decoder = JSONDecoder()
+                decoder.dateDecodingStrategy = .iso8601
+                let photos = try decoder.decode(Photos.self, from: data)
+                complete(photos.photos, nil)
+            } catch {
+                complete(nil, .notFound)
+            }
+        }.resume()
     }
 
     static func popularPhotoURL() -> URL? {
-        URL(fileURLWithPath: Bundle.main.path(forResource: "content", ofType: "json")!)
+        URL(string: "https://pastebin.com/raw/Ugjx0B3u")
     }
 }
 

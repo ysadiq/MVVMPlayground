@@ -19,9 +19,7 @@ class PhotoListTableViewCell: UITableViewCell {
             nameLabel.text = photoListCellViewModel?.titleText
             descriptionLabel.text = photoListCellViewModel?.descText
             dateLabel.text = photoListCellViewModel?.dateText
-            if let imageURLString = photoListCellViewModel?.imageUrl {
-                mainImageView?.download(from: URL(string: imageURLString))
-            }
+            mainImageView?.download(from: photoListCellViewModel?.imageUrl)
         }
     }
 }

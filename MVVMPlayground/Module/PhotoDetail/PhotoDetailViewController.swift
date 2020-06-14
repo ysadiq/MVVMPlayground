@@ -16,10 +16,7 @@ class PhotoDetailViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        if let imageUrl = imageUrl {
-            imageView?.download(from: URL(string: imageUrl))
-        }
-        
+        imageView?.download(from: imageUrl)
     }
 
     override func didReceiveMemoryWarning() {

@@ -6,7 +6,6 @@
 //  Copyright © 2019 ST.Huang. All rights reserved.
 //
 
-import Foundation
 import UIKit
 
 class PhotoListTableViewCell: UITableViewCell {
@@ -19,8 +18,10 @@ class PhotoListTableViewCell: UITableViewCell {
         didSet {
             nameLabel.text = photoListCellViewModel?.titleText
             descriptionLabel.text = photoListCellViewModel?.descText
-            mainImageView?.sd_setImage(with: URL(string: photoListCellViewModel?.imageUrl ?? ""), completed: nil)
             dateLabel.text = photoListCellViewModel?.dateText
+            if let imageURLString = photoListCellViewModel?.imageUrl {
+                mainImageView?.download(from: URL(string: imageURLString))
+            }
         }
     }
 }

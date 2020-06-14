@@ -17,7 +17,7 @@ class PhotoDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         if let imageUrl = imageUrl {
-            imageView.sd_setImage(with: URL(string: imageUrl), completed: nil)
+            imageView?.download(from: URL(string: imageUrl))
         }
         
     }

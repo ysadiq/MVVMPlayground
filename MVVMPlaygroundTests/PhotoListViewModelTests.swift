@@ -11,11 +11,11 @@ import XCTest
 
 class PhotoListViewModelTests: XCTestCase {
     var sut: PhotoListViewModel!
-    var apiServiceMock: ApiServiceMock!
+    var apiServiceMock: APIServiceMock!
 
     override func setUp() {
         super.setUp()
-        apiServiceMock = ApiServiceMock()
+        apiServiceMock = APIServiceMock()
         sut = PhotoListViewModel(apiService: apiServiceMock)
     }
     

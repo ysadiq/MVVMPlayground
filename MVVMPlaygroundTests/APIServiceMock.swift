@@ -14,7 +14,20 @@ import Foundation
 // so that we are able to inject different dependency in different situation.
 class APIServiceMock: APIServiceProtocol{
     var isFetchPopularPhotoCalled = false
+
+    var completePhotos: [Photo] = [Photo]()
+    var completeClosure: (([Photo]?, APIError?) -> ())!
+
     func fetchPopularPhoto(complete: @escaping ([Photo]?, APIError?) -> ()) {
         isFetchPopularPhotoCalled = true
+        completeClosure = complete
+    }
+
+    func fetchSuccess() {
+        completeClosure(completePhotos, nil)
+    }
+
+    func fetchFail(error: APIError?) {
+        completeClosure(nil, error)
     }
 }

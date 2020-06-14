@@ -67,9 +67,14 @@ class PhotoListViewModel {
             self.state = .populated
         }
     }
-    
-    func getCellViewModel(at indexPath: IndexPath) -> PhotoListCellViewModel {
-        return cellViewModels[indexPath.row]
+
+    private func processFetchedPhoto(photos: [Photo]) {
+        self.photos = photos // Cache
+        var vms = [PhotoListCellViewModel]()
+        for photo in photos {
+            vms.append(createCellViewModel(photo: photo))
+        }
+        self.cellViewModels = vms
     }
     
     func createCellViewModel(photo: Photo) -> PhotoListCellViewModel {
@@ -92,16 +97,10 @@ class PhotoListViewModel {
                                       imageUrl: photo.image_url,
                                       dateText: dateFormatter.string(from: photo.created_at))
     }
-    
-    private func processFetchedPhoto(photos: [Photo]) {
-        self.photos = photos // Cache
-        var vms = [PhotoListCellViewModel]()
-        for photo in photos {
-            vms.append(createCellViewModel(photo: photo))
-        }
-        self.cellViewModels = vms
+
+    func getCellViewModel(at indexPath: IndexPath) -> PhotoListCellViewModel {
+        return cellViewModels[indexPath.row]
     }
-    
 }
 
 extension PhotoListViewModel {

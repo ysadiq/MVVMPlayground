@@ -9,11 +9,5 @@
 import Foundation
 
 protocol APIServiceProtocol {
-    func fetchPopularPhoto(from url: URL?, complete: @escaping (_ photos: [Photo]?, _ error: APIError?)->())
-}
-
-extension APIServiceProtocol {
-    func fetchPopularPhoto(complete: @escaping (_ photos: [Photo]?, _ error: APIError?)->()) {
-        fetchPopularPhoto(from: APIService.popularPhotoURL(), complete: complete)
-    }
+    func fetchPhotos(from url: URL?, complete: @escaping (_ photos: [Photo]?, _ error: APIError?)->())
 }

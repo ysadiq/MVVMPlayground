@@ -9,9 +9,10 @@
 import UIKit
 
 extension UIImageView {
-    func download(from url: URL?) {
-        guard let url = url else {
-            return
+    func download(from urlString: String?) {
+        guard let urlString = urlString,
+            let url = URL(string: urlString) else {
+                return
         }
 
         URLSession.shared.dataTask(with: url) { (data, response, error) in

@@ -44,9 +44,9 @@ class PhotoListViewControllerWithMVC: UIViewController {
 
     func initData() {
         // (problem #2: another dependency, the API service)
-        apiService.fetchPopularPhoto { [weak self] (success, photos, error) in
+        apiService.fetchPopularPhoto { [weak self] (photos, error) in
             DispatchQueue.main.async {
-                self?.photos = photos
+                self?.photos = photos!
                 // (problem #3: when to start/stop the activity indicator.)
                 self?.activityIndicator.stopAnimating()
                 // (problem #4: We also have the View code such as the implementation of showing/hiding the table view)

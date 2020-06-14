@@ -9,17 +9,17 @@
 /* Begin PBXBuildFile section */
 		0011920C85A6DE8C4C53098C /* Pods_MVVMPlayground.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8E8F55786D17371EA2136E40 /* Pods_MVVMPlayground.framework */; };
 		830DEE4EED3ED633E9CB8046 /* Pods_MVVMPlaygroundTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EF7905D927CB936C846D88A6 /* Pods_MVVMPlaygroundTests.framework */; };
-		9951575E234333C700E95F79 /* PhotoListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9951575D234333C700E95F79 /* PhotoListTableViewCell.swift */; };
 		996B8727236AD54000285754 /* State.swift in Sources */ = {isa = PBXBuildFile; fileRef = 996B8726236AD54000285754 /* State.swift */; };
 		996B8729236AF27200285754 /* PhotoListCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 996B8728236AF27200285754 /* PhotoListCellViewModel.swift */; };
 		996E89BA23E4D2BC00A58480 /* StubGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 996E89B923E4D2BC00A58480 /* StubGenerator.swift */; };
+		99ADA59A2496016800AA89C4 /* PhotoListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5296F311F809F4D003CDD90 /* PhotoListViewController.swift */; };
+		99ADA59B2496016800AA89C4 /* PhotoListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9951575D234333C700E95F79 /* PhotoListTableViewCell.swift */; };
 		B5296F0A1F809ADF003CDD90 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5296F091F809ADF003CDD90 /* AppDelegate.swift */; };
 		B5296F0F1F809ADF003CDD90 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B5296F0D1F809ADF003CDD90 /* Main.storyboard */; };
 		B5296F111F809ADF003CDD90 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B5296F101F809ADF003CDD90 /* Assets.xcassets */; };
 		B5296F141F809ADF003CDD90 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B5296F121F809ADF003CDD90 /* LaunchScreen.storyboard */; };
 		B5296F2D1F809EF2003CDD90 /* photo.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5296F2C1F809EF2003CDD90 /* photo.swift */; };
 		B5296F301F809F0E003CDD90 /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5296F2F1F809F0E003CDD90 /* APIService.swift */; };
-		B5296F321F809F4D003CDD90 /* PhotoListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5296F311F809F4D003CDD90 /* PhotoListViewController.swift */; };
 		B5296F361F812CD9003CDD90 /* content.json in Resources */ = {isa = PBXBuildFile; fileRef = B5296F351F812CD9003CDD90 /* content.json */; };
 		B5296F3C1F82A39C003CDD90 /* PhotoDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5296F3B1F82A39C003CDD90 /* PhotoDetailViewController.swift */; };
 		B53F33DE1F839F2B00CCABB5 /* PhotoListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B53F33DD1F839F2B00CCABB5 /* PhotoListViewModel.swift */; };
@@ -36,11 +36,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		02FEC0F3AE27D2597539D389 /* Pods-MVVMPlaygroundTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MVVMPlaygroundTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MVVMPlaygroundTests/Pods-MVVMPlaygroundTests.debug.xcconfig"; sourceTree = "<group>"; };
-		35E899F724C08CDBF5386960 /* Pods-MVVMPlaygroundTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MVVMPlaygroundTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-MVVMPlaygroundTests/Pods-MVVMPlaygroundTests.release.xcconfig"; sourceTree = "<group>"; };
-		7015F8DC8241C55A953C6294 /* Pods-MVVMPlayground.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MVVMPlayground.release.xcconfig"; path = "Pods/Target Support Files/Pods-MVVMPlayground/Pods-MVVMPlayground.release.xcconfig"; sourceTree = "<group>"; };
 		8E8F55786D17371EA2136E40 /* Pods_MVVMPlayground.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MVVMPlayground.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		94790262F46562F93184F767 /* Pods-MVVMPlayground.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MVVMPlayground.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MVVMPlayground/Pods-MVVMPlayground.debug.xcconfig"; sourceTree = "<group>"; };
 		995157582343312000E95F79 /* PhotoListViewControllerWithMVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoListViewControllerWithMVC.swift; sourceTree = "<group>"; };
 		9951575B2343332F00E95F79 /* PhotoListTableViewCellWithMVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoListTableViewCellWithMVC.swift; sourceTree = "<group>"; };
 		9951575D234333C700E95F79 /* PhotoListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoListTableViewCell.swift; sourceTree = "<group>"; };
@@ -139,7 +135,6 @@
 				B5296F081F809ADF003CDD90 /* MVVMPlayground */,
 				996E89AA23E48BC100A58480 /* MVVMPlaygroundTests */,
 				B5296F071F809ADF003CDD90 /* Products */,
-				C2DFBDCC67CC885C0387E711 /* Pods */,
 				0620D9102CCD149D32850E4E /* Frameworks */,
 			);
 			sourceTree = "<group>";
@@ -209,17 +204,6 @@
 			path = PhotoDetail;
 			sourceTree = "<group>";
 		};
-		C2DFBDCC67CC885C0387E711 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				94790262F46562F93184F767 /* Pods-MVVMPlayground.debug.xcconfig */,
-				7015F8DC8241C55A953C6294 /* Pods-MVVMPlayground.release.xcconfig */,
-				02FEC0F3AE27D2597539D389 /* Pods-MVVMPlaygroundTests.debug.xcconfig */,
-				35E899F724C08CDBF5386960 /* Pods-MVVMPlaygroundTests.release.xcconfig */,
-			);
-			name = Pods;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -246,11 +230,9 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = B5296F231F809ADF003CDD90 /* Build configuration list for PBXNativeTarget "MVVMPlayground" */;
 			buildPhases = (
-				5D4CFE0EC89BE71191A82EEC /* [CP] Check Pods Manifest.lock */,
 				B5296F021F809ADF003CDD90 /* Sources */,
 				B5296F031F809ADF003CDD90 /* Frameworks */,
 				B5296F041F809ADF003CDD90 /* Resources */,
-				4FA5B8A58AAE08ECE2D0DA66 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -323,42 +305,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		4FA5B8A58AAE08ECE2D0DA66 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-MVVMPlayground/Pods-MVVMPlayground-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-MVVMPlayground/Pods-MVVMPlayground-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		5D4CFE0EC89BE71191A82EEC /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-MVVMPlayground-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
 		BD4C0D108028C537C02435EE /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -396,13 +342,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B5296F321F809F4D003CDD90 /* PhotoListViewController.swift in Sources */,
 				996B8729236AF27200285754 /* PhotoListCellViewModel.swift in Sources */,
 				B53F33DE1F839F2B00CCABB5 /* PhotoListViewModel.swift in Sources */,
 				B5296F2D1F809EF2003CDD90 /* photo.swift in Sources */,
 				B5296F301F809F0E003CDD90 /* APIService.swift in Sources */,
-				9951575E234333C700E95F79 /* PhotoListTableViewCell.swift in Sources */,
 				B5296F3C1F82A39C003CDD90 /* PhotoDetailViewController.swift in Sources */,
+				99ADA59A2496016800AA89C4 /* PhotoListViewController.swift in Sources */,
+				99ADA59B2496016800AA89C4 /* PhotoListTableViewCell.swift in Sources */,
 				B5296F0A1F809ADF003CDD90 /* AppDelegate.swift in Sources */,
 				996B8727236AD54000285754 /* State.swift in Sources */,
 			);
@@ -440,7 +386,6 @@
 /* Begin XCBuildConfiguration section */
 		996E89B123E48BC100A58480 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 02FEC0F3AE27D2597539D389 /* Pods-MVVMPlaygroundTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CLANG_ENABLE_OBJC_WEAK = YES;
@@ -461,7 +406,6 @@
 		};
 		996E89B223E48BC100A58480 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 35E899F724C08CDBF5386960 /* Pods-MVVMPlaygroundTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CLANG_ENABLE_OBJC_WEAK = YES;
@@ -592,7 +536,6 @@
 		};
 		B5296F241F809ADF003CDD90 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 94790262F46562F93184F767 /* Pods-MVVMPlayground.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Manual;
@@ -609,7 +552,6 @@
 		};
 		B5296F251F809ADF003CDD90 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 7015F8DC8241C55A953C6294 /* Pods-MVVMPlayground.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Manual;

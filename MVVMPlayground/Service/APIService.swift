@@ -16,7 +16,6 @@ enum APIError: String, Error {
 }
 
 class APIService: APIServiceProtocol {
-    // Simulate a long waiting for fetching
     func fetchPhotos(from url: URL?,
                complete: @escaping (_ photos: [Photo]?, _ error: APIError?)->()) {
         guard let url = url else {

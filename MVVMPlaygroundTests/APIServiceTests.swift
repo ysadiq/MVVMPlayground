@@ -23,7 +23,7 @@ class APIServiceTests: XCTestCase {
     }
 
     func test_fetch_popular_photos() {
-        // 1
+        // Given
         let promise = XCTestExpectation(description: "Fetch photos completed")
 
         // When
@@ -59,7 +59,12 @@ class APIServiceTests: XCTestCase {
         var responsePhotos: [Photo]?
 
         // When
-        sut.fetchPhotos(from: APIService.popularPhotoURL(), complete: { (photos, error) in
+        guard let bundle = Bundle.unitTest.path(forResource: "stub", ofType: "json") else {
+            XCTFail("Error: content not found")
+            return
+        }
+
+        sut.fetchPhotos(from: URL(fileURLWithPath: bundle), complete: { (photos, error) in
             responseError = error
             responsePhotos = photos
             promise.fulfill()

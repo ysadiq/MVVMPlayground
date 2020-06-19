@@ -25,36 +25,6 @@ class APIServiceTests: XCTestCase {
     func test_fetch_popular_photos() {
         // Given
         let promise = XCTestExpectation(description: "Fetch photos completed")
-
-        // When
-        guard let bundle = Bundle.unitTest.path(forResource: "stub", ofType: "json") else {
-            XCTFail("Error: content not found")
-            return
-        }
-
-        sut.fetchPhotos(from: URL(fileURLWithPath: bundle), complete: { (photos, error) in
-            // Then
-            guard error == nil,
-                let photos = photos else {
-                    if let errorDesc = error?.rawValue {
-                        XCTFail("Error: \(errorDesc)")
-                    }
-                    return
-            }
-            
-            XCTAssertEqual(photos.count, 20)
-
-            // 2
-            promise.fulfill()
-        })
-
-        // 3
-        wait(for: [promise], timeout: 1)
-    }
-
-    func test_fetch_popular_photos_completes() {
-        // Given
-        let promise = XCTestExpectation(description: "Fetch photos completed")
         var responseError: Error?
         var responsePhotos: [Photo]?
 
@@ -63,7 +33,7 @@ class APIServiceTests: XCTestCase {
             XCTFail("Error: content not found")
             return
         }
-
+        
         sut.fetchPhotos(from: URL(fileURLWithPath: bundle), complete: { (photos, error) in
             responseError = error
             responsePhotos = photos

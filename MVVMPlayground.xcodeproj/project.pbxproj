@@ -114,6 +114,16 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
+		99DDD6B1249E235C00585566 /* Stubs+Mocks+Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				9951576123433CE700E95F79 /* StubGenerator.swift */,
+				9951575F23433C8000E95F79 /* APIServiceMock.swift */,
+				99ADA5A82496740B00AA89C4 /* Bundle+unitTests.swift */,
+			);
+			path = "Stubs+Mocks+Extensions";
+			sourceTree = "<group>";
+		};
 		B5296EFD1F809ADF003CDD90 = {
 			isa = PBXGroup;
 			children = (
@@ -150,9 +160,7 @@
 				B5296F201F809ADF003CDD90 /* Info.plist */,
 				B5296F371F813552003CDD90 /* APIServiceTests.swift */,
 				B53F33DF1F839F4300CCABB5 /* PhotoListViewModelTests.swift */,
-				9951576123433CE700E95F79 /* StubGenerator.swift */,
-				9951575F23433C8000E95F79 /* APIServiceMock.swift */,
-				99ADA5A82496740B00AA89C4 /* Bundle+unitTests.swift */,
+				99DDD6B1249E235C00585566 /* Stubs+Mocks+Extensions */,
 				99ADA5AA2496749F00AA89C4 /* stub.json */,
 			);
 			path = MVVMPlaygroundTests;

@@ -1,5 +1,5 @@
 //
-//  PhotoListViewController(MVC).swift
+//  PhotoListViewController.swift
 //  MVVMPlayground
 //
 //  Created by Yahya Saddiq on 10/1/19.
@@ -9,9 +9,8 @@
 import Foundation
 
 import UIKit
-import SDWebImage
 
-class PhotoListViewControllerWithMVC: UIViewController {
+class PhotoListViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
@@ -44,7 +43,7 @@ class PhotoListViewControllerWithMVC: UIViewController {
 
     func initData() {
         // (problem #2: another dependency, the API service)
-        apiService.fetchPopularPhoto { [weak self] (photos, error) in
+        apiService.fetchPopularPhotos { [weak self] (photos, error) in
             DispatchQueue.main.async {
                 self?.photos = photos!
                 // (problem #3: when to start/stop the activity indicator.)
@@ -66,10 +65,10 @@ class PhotoListViewControllerWithMVC: UIViewController {
 
 }
 
-extension PhotoListViewControllerWithMVC: UITableViewDelegate, UITableViewDataSource {
+extension PhotoListViewController: UITableViewDelegate, UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "photoCellIdentifier", for: indexPath) as? PhotoListTableViewCellWithMVC else {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "photoCellIdentifier", for: indexPath) as? PhotoListTableViewCell else {
             fatalError("Cell not exists in storyboard")
         }
 
@@ -94,8 +93,7 @@ extension PhotoListViewControllerWithMVC: UITableViewDelegate, UITableViewDataSo
         cell.dateLabel.text = dateFormateer.string(from: photo.created_at)
 
         //Image
-        cell.mainImageView.sd_setImage(with: URL(string: photo.image_url), completed: nil)
-
+        cell.mainImageView.download(from: photo.image_url)
         return cell
     }
 
@@ -128,7 +126,7 @@ extension PhotoListViewControllerWithMVC: UITableViewDelegate, UITableViewDataSo
 
 }
 
-extension PhotoListViewControllerWithMVC {
+extension PhotoListViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let vc = segue.destination as? PhotoDetailViewController,
             let indexPath = self.selectedIndexPath {

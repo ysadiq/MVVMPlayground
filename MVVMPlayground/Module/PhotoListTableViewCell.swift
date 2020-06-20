@@ -1,5 +1,5 @@
 //
-//  PhotoListTableViewCellWithMVC.swift
+//  PhotoListTableViewCell.swift
 //  MVVMPlayground
 //
 //  Created by Yahya Saddiq on 10/1/19.
@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-class PhotoListTableViewCellWithMVC: UITableViewCell {
+class PhotoListTableViewCell: UITableViewCell {
     @IBOutlet weak var mainImageView: UIImageView!
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var descriptionLabel: UILabel!

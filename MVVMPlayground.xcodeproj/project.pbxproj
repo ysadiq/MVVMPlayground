@@ -35,8 +35,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		995157582343312000E95F79 /* PhotoListViewControllerWithMVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoListViewControllerWithMVC.swift; sourceTree = "<group>"; };
-		9951575B2343332F00E95F79 /* PhotoListTableViewCellWithMVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoListTableViewCellWithMVC.swift; sourceTree = "<group>"; };
 		9951575D234333C700E95F79 /* PhotoListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoListTableViewCell.swift; sourceTree = "<group>"; };
 		996B8726236AD54000285754 /* State.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = State.swift; sourceTree = "<group>"; };
 		996B8728236AF27200285754 /* PhotoListCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoListCellViewModel.swift; sourceTree = "<group>"; };
@@ -76,15 +74,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		9951575A234332C700E95F79 /* PhotoListWithMVC */ = {
-			isa = PBXGroup;
-			children = (
-				995157582343312000E95F79 /* PhotoListViewControllerWithMVC.swift */,
-				9951575B2343332F00E95F79 /* PhotoListTableViewCellWithMVC.swift */,
-			);
-			path = PhotoListWithMVC;
-			sourceTree = "<group>";
-		};
 		995157632343898700E95F79 /* Others */ = {
 			isa = PBXGroup;
 			children = (
@@ -157,8 +146,9 @@
 		B5296F291F809BC8003CDD90 /* Module */ = {
 			isa = PBXGroup;
 			children = (
-				9951575A234332C700E95F79 /* PhotoListWithMVC */,
-				B5296F2B1F809E9E003CDD90 /* PhotoListWithMVVM */,
+				B5296F311F809F4D003CDD90 /* PhotoListViewController.swift */,
+				9951575D234333C700E95F79 /* PhotoListTableViewCell.swift */,
+				996B872A236AF2D600285754 /* ViewModel */,
 				B5296F3A1F82A383003CDD90 /* PhotoDetail */,
 			);
 			path = Module;
@@ -170,16 +160,6 @@
 				B5296F2C1F809EF2003CDD90 /* photo.swift */,
 			);
 			path = Model;
-			sourceTree = "<group>";
-		};
-		B5296F2B1F809E9E003CDD90 /* PhotoListWithMVVM */ = {
-			isa = PBXGroup;
-			children = (
-				B5296F311F809F4D003CDD90 /* PhotoListViewController.swift */,
-				9951575D234333C700E95F79 /* PhotoListTableViewCell.swift */,
-				996B872A236AF2D600285754 /* ViewModel */,
-			);
-			path = PhotoListWithMVVM;
 			sourceTree = "<group>";
 		};
 		B5296F2E1F809EFA003CDD90 /* Service */ = {

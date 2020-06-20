@@ -17,7 +17,6 @@ extension UIImageView {
 
         URLSession.shared.dataTask(with: url) { (data, response, error) in
             guard let data = data, error == nil else { return }
-            print(response?.suggestedFilename ?? url.lastPathComponent)
             DispatchQueue.main.async() { [weak self] in
                 self?.image = UIImage(data: data)
             }

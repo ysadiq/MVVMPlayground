@@ -13,14 +13,19 @@ import Foundation
 // Both APIServiceand APIServiceMock conform to APIServiceProtocol,
 // so that we are able to inject different dependency in different situation.
 class APIServiceMock: APIServiceProtocol{
-    var isFetchPopularPhotoCalled = false
+    var fetchPopularPhotosIsCalled = false
+    var fetchPhotosIsCalled = false
 
     var completePhotos: [Photo] = [Photo]()
     var completeClosure: (([Photo]?, APIError?) -> ())!
 
-    func fetchPhotos(from url: URL?, complete: @escaping ([Photo]?, APIError?) -> ()) {
-        isFetchPopularPhotoCalled = true
+    func fetchPopularPhotos(complete: @escaping ([Photo]?, APIError?) -> ()) {
+        fetchPopularPhotosIsCalled = true
         completeClosure = complete
+    }
+
+    func fetchPhotos(from url: URL?, complete: @escaping ([Photo]?, APIError?) -> ()) {
+        fetchPhotosIsCalled = true
     }
 
     func fetchSuccess() {

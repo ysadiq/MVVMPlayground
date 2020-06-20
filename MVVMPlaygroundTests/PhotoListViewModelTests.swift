@@ -31,12 +31,12 @@ class PhotoListViewModelTests: XCTestCase {
     // Given: Here, you set up any values needed.
     // In this example, today’s date and a dummy photo object are created.
     
-    func test_fetch_photo() {
+    func test_fetch_popular_photo() {
         // When
         sut.initFetch()
     
         // Then
-        XCTAssert(apiServiceMock.isFetchPopularPhotoCalled)
+        XCTAssert(apiServiceMock.fetchPopularPhotosIsCalled)
     }
     
     func test_fetch_photo_fail() {

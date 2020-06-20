@@ -16,8 +16,16 @@ enum APIError: String, Error {
 }
 
 class APIService: APIServiceProtocol {
+    private let popularPhotoURL: URL? = {
+        URL(string: "https://pastebin.com/raw/Ugjx0B3u")
+    }()
+
+    func fetchPopularPhotos(complete: @escaping (_ photos: [Photo]?, _ error: APIError?)->()) {
+        fetchPhotos(from: popularPhotoURL, complete: complete)
+    }
+    
     func fetchPhotos(from url: URL?,
-               complete: @escaping (_ photos: [Photo]?, _ error: APIError?)->()) {
+                     complete: @escaping (_ photos: [Photo]?, _ error: APIError?)->()) {
         guard let url = url else {
             complete(nil, .notFound)
             return
@@ -34,9 +42,5 @@ class APIService: APIServiceProtocol {
                 complete(nil, .notFound)
             }
         }.resume()
-    }
-
-    static func popularPhotoURL() -> URL? {
-        URL(string: "https://pastebin.com/raw/Ugjx0B3u")
     }
 }

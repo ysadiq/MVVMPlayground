@@ -203,11 +203,9 @@ class PhotoListViewModelTests: XCTestCase {
                           camera: "camera")
 
         // When: In this section, you’ll execute the code being tested: Call createCellViewModel(photo:).
-        // When
         let cellViewModel = sut?.createCellViewModel(photo: photo)
 
         // Then: This is the section where you’ll assert the result you expect with a message that prints if the test fails.
-        // Then
         XCTAssertEqual(cellViewModel?.descText, "\(photo.camera ?? "") - \(photo.description ?? "")")
     }
 }

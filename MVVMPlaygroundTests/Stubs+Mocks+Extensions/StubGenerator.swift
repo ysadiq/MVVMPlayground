@@ -10,12 +10,15 @@ import Foundation
 @testable import MVVMPlayground
 
 class StubGenerator {
-    func stubPhotos() -> [Photo] {
-        let path = Bundle.unitTest.path(forResource: "stub", ofType: "json")!
-        let data = try! Data(contentsOf: URL(fileURLWithPath: path))
+    func stubPhotos() -> [Photo]? {
+        guard let path = Bundle.unitTest.path(forResource: "stub", ofType: "json"),
+            let data = try? Data(contentsOf: URL(fileURLWithPath: path)) else {
+                return nil
+        }
+
         let decoder = JSONDecoder()
         decoder.dateDecodingStrategy = .iso8601
-        let photos = try! decoder.decode(Photos.self, from: data)
-        return photos.photos
+        let photos = try? decoder.decode(Photos.self, from: data)
+        return photos?.photos
     }
 }

@@ -53,9 +53,14 @@ class PhotoListViewModelTests: XCTestCase {
 
     func test_user_press_for_sale_item() {
         // Given
+        guard let photos = StubGenerator().stubPhotos() else {
+            XCTFail("Failed to generate photos")
+            return
+        }
+
         let indexPath = IndexPath(row: 0, section: 0)
 
-        apiServiceMock.completePhotos = StubGenerator().stubPhotos()
+        apiServiceMock.completePhotos = photos
 
         sut.initFetch()
         apiServiceMock.fetchSuccess()
@@ -69,9 +74,13 @@ class PhotoListViewModelTests: XCTestCase {
 
     func test_user_press_not_for_sale_item() {
         // Given
+        guard let photos = StubGenerator().stubPhotos() else {
+            XCTFail("Failed to generate photos")
+            return
+        }
         let indexPath = IndexPath(row: 4, section: 0)
 
-        apiServiceMock.completePhotos = StubGenerator().stubPhotos()
+        apiServiceMock.completePhotos = photos
 
         sut.initFetch()
         apiServiceMock.fetchSuccess()
@@ -93,7 +102,11 @@ class PhotoListViewModelTests: XCTestCase {
 
     func test_create_cell_view_model() {
         // Given
-        let photos = StubGenerator().stubPhotos()
+        guard let photos = StubGenerator().stubPhotos() else {
+            XCTFail("Failed to generate photos")
+            return
+        }
+
         apiServiceMock.completePhotos = photos
 
         let promise = XCTestExpectation(description: "reload closure triggered")
@@ -113,10 +126,10 @@ class PhotoListViewModelTests: XCTestCase {
     func test_populated_state_when_fetching() {
 
         //Given
-        var state: State = .empty
+        var state: State? = .empty
         let promise = XCTestExpectation(description: "Loading state updated to populated")
         sut.updateLoadingStatus = { [weak sut] in
-            state = sut!.state
+            state = sut?.state
             promise.fulfill()
         }
 
@@ -128,17 +141,17 @@ class PhotoListViewModelTests: XCTestCase {
         XCTAssertEqual(state, State.loading)
 
         // When finished fetching
-        apiServiceMock!.fetchSuccess()
+        apiServiceMock?.fetchSuccess()
         XCTAssertEqual(state, State.populated)
     }
 
     func test_error_state_when_fetching() {
 
         //Given
-        var state: State = .empty
+        var state: State? = .empty
         let promise = XCTestExpectation(description: "Loading state updated to error")
         sut.updateLoadingStatus = { [weak sut] in
-            state = sut!.state
+            state = sut?.state
             promise.fulfill()
         }
         // Given a failed fetch with a certain failure
@@ -152,14 +165,18 @@ class PhotoListViewModelTests: XCTestCase {
         XCTAssertEqual(state, State.loading)
 
         // When finished fetching
-        apiServiceMock!.fetchFail(error: error)
+        apiServiceMock?.fetchFail(error: error)
         XCTAssertEqual(state, State.error)
     }
 
-    func test_get_cell_view_model() {
-
+    func testGetCellViewModel() {
         //Given a sut with fetched photos
-        apiServiceMock.completePhotos = StubGenerator().stubPhotos()
+        guard let photos = StubGenerator().stubPhotos() else {
+            XCTFail("Failed to generate photos")
+            return
+        }
+
+        apiServiceMock.completePhotos = photos
 
         sut.initFetch()
         apiServiceMock.fetchSuccess()
@@ -174,7 +191,7 @@ class PhotoListViewModelTests: XCTestCase {
         XCTAssertEqual(vm.titleText, testPhoto.name)
     }
 
-    func test_cell_view_model() {
+    func testCreateCellViewModel() {
         // Given
         let today = Date()
         let photo = Photo(id: 1,
@@ -186,9 +203,11 @@ class PhotoListViewModelTests: XCTestCase {
                           camera: "camera")
 
         // When: In this section, you’ll execute the code being tested: Call createCellViewModel(photo:).
-        let cellViewModel = sut!.createCellViewModel(photo: photo)
+        // When
+        let cellViewModel = sut?.createCellViewModel(photo: photo)
 
         // Then: This is the section where you’ll assert the result you expect with a message that prints if the test fails.
-        XCTAssertEqual(cellViewModel.descText, "\(photo.camera!) - \(photo.description!)")
+        // Then
+        XCTAssertEqual(cellViewModel?.descText, "\(photo.camera ?? "") - \(photo.description ?? "")")
     }
 }

@@ -60,7 +60,7 @@ class PhotoListViewModelTests: XCTestCase {
 
         let indexPath = IndexPath(row: 0, section: 0)
 
-        apiServiceMock.completePhotos = photos
+        apiServiceMock.photos = photos
 
         sut.initFetch()
         apiServiceMock.fetchSuccess()
@@ -80,7 +80,7 @@ class PhotoListViewModelTests: XCTestCase {
         }
         let indexPath = IndexPath(row: 4, section: 0)
 
-        apiServiceMock.completePhotos = photos
+        apiServiceMock.photos = photos
 
         sut.initFetch()
         apiServiceMock.fetchSuccess()
@@ -107,7 +107,7 @@ class PhotoListViewModelTests: XCTestCase {
             return
         }
 
-        apiServiceMock.completePhotos = photos
+        apiServiceMock.photos = photos
 
         let promise = XCTestExpectation(description: "reload closure triggered")
         sut.reloadTableViewClosure = { () in
@@ -176,13 +176,13 @@ class PhotoListViewModelTests: XCTestCase {
             return
         }
 
-        apiServiceMock.completePhotos = photos
+        apiServiceMock.photos = photos
 
         sut.initFetch()
         apiServiceMock.fetchSuccess()
 
         let indexPath = IndexPath(row: 1, section: 0)
-        let testPhoto = apiServiceMock.completePhotos[indexPath.row]
+        let testPhoto = apiServiceMock.photos[indexPath.row]
 
         // When
         let vm = sut.getCellViewModel(at: indexPath)

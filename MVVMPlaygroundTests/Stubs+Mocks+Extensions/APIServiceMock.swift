@@ -16,7 +16,7 @@ class APIServiceMock: APIServiceProtocol{
     var fetchPopularPhotosIsCalled = false
     var fetchPhotosIsCalled = false
 
-    var completePhotos: [Photo] = [Photo]()
+    var photos: [Photo] = [Photo]()
     var completeClosure: (([Photo]?, APIError?) -> ())!
 
     func fetchPopularPhotos(complete: @escaping ([Photo]?, APIError?) -> ()) {
@@ -29,7 +29,7 @@ class APIServiceMock: APIServiceProtocol{
     }
 
     func fetchSuccess() {
-        completeClosure(completePhotos, nil)
+        completeClosure(photos, nil)
     }
 
     func fetchFail(error: APIError?) {

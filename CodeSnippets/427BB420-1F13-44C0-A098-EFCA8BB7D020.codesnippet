@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDECodeSnippetCompletionPrefix</key>
+	<string>createCellViewModel</string>
+	<key>IDECodeSnippetCompletionScopes</key>
+	<array>
+		<string>CodeBlock</string>
+		<string>All</string>
+	</array>
+	<key>IDECodeSnippetContents</key>
+	<string>func testCreateCellViewModel() {
+        // Given
+        let today = Date()
+        let photo = Photo(id: 1,
+                          name: "Name",
+                          description: "desc",
+                          created_at: today,
+                          image_url: "url",
+                          for_sale: true,
+                          camera: "camera")
+
+        // When
+        let cellViewModel = sut?.createCellViewModel(photo: photo)
+
+        // Then
+        XCTAssertEqual(cellViewModel?.descText, "\(photo.camera ?? "") - \(photo.description ?? "")")
+}</string>
+	<key>IDECodeSnippetIdentifier</key>
+	<string>427BB420-1F13-44C0-A098-EFCA8BB7D020</string>
+	<key>IDECodeSnippetLanguage</key>
+	<string>Xcode.SourceCodeLanguage.Swift</string>
+	<key>IDECodeSnippetSummary</key>
+	<string>PhotoListViewModelTests</string>
+	<key>IDECodeSnippetTitle</key>
+	<string>testCreateCellViewModel()</string>
+	<key>IDECodeSnippetUserSnippet</key>
+	<true/>
+	<key>IDECodeSnippetVersion</key>
+	<integer>2</integer>
+</dict>
+</plist>

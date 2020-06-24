@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDECodeSnippetCompletionPrefix</key>
+	<string>PhotoListViewModelTests+APIServiceMock</string>
+	<key>IDECodeSnippetCompletionScopes</key>
+	<array>
+		<string>All</string>
+	</array>
+	<key>IDECodeSnippetContents</key>
+	<string>    var apiServiceMock: APIServiceMock!
+
+    override func setUp() {
+        super.setUp()
+        // Create an instance of the mock in PhotoListViewModelTests
+        apiServiceMock = APIServiceMock()
+        // Inject apiServiceMock to PhotoListViewModel
+        sut = PhotoListViewModel(apiService: apiServiceMock)
+    }
+
+    override func tearDown() {
+        sut = nil
+        apiServiceMock = nil
+
+        super.tearDown()
+    }</string>
+	<key>IDECodeSnippetIdentifier</key>
+	<string>B0BBA96C-8A97-4240-944E-23A3E315E571</string>
+	<key>IDECodeSnippetLanguage</key>
+	<string>Xcode.SourceCodeLanguage.Swift</string>
+	<key>IDECodeSnippetSummary</key>
+	<string>Setup PhotoListViewModel with Mock</string>
+	<key>IDECodeSnippetTitle</key>
+	<string>PhotoListViewModelTests+APIServiceMock</string>
+	<key>IDECodeSnippetUserSnippet</key>
+	<true/>
+	<key>IDECodeSnippetVersion</key>
+	<integer>2</integer>
+</dict>
+</plist>

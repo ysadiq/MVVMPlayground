@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDECodeSnippetCompletionPrefix</key>
+	<string>APIServiceTests</string>
+	<key>IDECodeSnippetCompletionScopes</key>
+	<array>
+		<string>ClassImplementation</string>
+		<string>All</string>
+	</array>
+	<key>IDECodeSnippetContents</key>
+	<string>// Give the unit tests an access to the internal types and functions in MVVMPlayground.
+@testable import MVVMPlayground
+
+class APIServiceTests: XCTestCase {
+    // Create a placeholder for the APIService, which is the System Under Test, or the object this test case class is concerned with testing.
+    var sut: APIService!
+
+    // Setup and teardown prepare initial state before tests run and perform cleanup after each test.
+    override func setUp() {
+        super.setUp()
+        // Create APIService object at the class level, so all the tests in this test class can access the SUT object’s properties and methods.
+        sut = APIService()
+    }
+
+    override func tearDown() {
+        // Before we forget, release the SUT object in tearDown().
+        sut = nil
+        
+        // This is called last in case the current class is relying on something that might be nulled out or cleaned up in the superclass.
+        super.tearDown()
+    }
+}</string>
+	<key>IDECodeSnippetIdentifier</key>
+	<string>11E14AC2-A7CF-48E8-9600-20B09CE06F5C</string>
+	<key>IDECodeSnippetLanguage</key>
+	<string>Xcode.SourceCodeLanguage.Swift</string>
+	<key>IDECodeSnippetSummary</key>
+	<string></string>
+	<key>IDECodeSnippetTitle</key>
+	<string>APIServiceTests</string>
+	<key>IDECodeSnippetUserSnippet</key>
+	<true/>
+	<key>IDECodeSnippetVersion</key>
+	<integer>2</integer>
+</dict>
+</plist>

@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDECodeSnippetCompletionPrefix</key>
+	<string>UserPressedForSaleItem</string>
+	<key>IDECodeSnippetCompletionScopes</key>
+	<array>
+		<string>All</string>
+		<string>CodeBlock</string>
+	</array>
+	<key>IDECodeSnippetContents</key>
+	<string>    func testUserPressedForSaleItem() {
+        // Given
+        // The StubGenerator().stubPhotos() generates photo objects form the stub.json
+        guard let photos = StubGenerator().stubPhotos() else {
+            XCTFail("Failed to generate photos")
+            return
+        }
+
+        let indexPath = IndexPath(row: 0, section: 0)
+
+        // Then we assign the photo objects to the mockAPIService.completePhotos.
+        apiServiceMock.photos = photos
+
+        sut.initFetch()
+        apiServiceMock.fetchSuccess()
+
+        // When
+        sut.userPressed(at: indexPath)
+        // if we trigger the sut.userPressed(at:) without filling apiServiceMock.photos,
+        // the test will crash because of out of range fatal error.
+
+        // Then
+        XCTAssertTrue(sut.isAllowSegue)
+    }
+    // This test should succeed pretty quickly because there isn’t any real network connection!
+    // With the help of those stubs,
+    // you are able to assert a certain action such as user presses on a specific IndexPath and so on.</string>
+	<key>IDECodeSnippetIdentifier</key>
+	<string>453B5232-1DF4-4476-B712-8E33272BC435</string>
+	<key>IDECodeSnippetLanguage</key>
+	<string>Xcode.SourceCodeLanguage.Swift</string>
+	<key>IDECodeSnippetSummary</key>
+	<string>PhotoListViewModelTests</string>
+	<key>IDECodeSnippetTitle</key>
+	<string>testUserPressedForSaleItem()</string>
+	<key>IDECodeSnippetUserSnippet</key>
+	<true/>
+	<key>IDECodeSnippetVersion</key>
+	<integer>2</integer>
+</dict>
+</plist>

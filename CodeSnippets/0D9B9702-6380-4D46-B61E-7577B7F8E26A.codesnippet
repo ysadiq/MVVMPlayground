@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDECodeSnippetCompletionPrefix</key>
+	<string>FetchPhotos</string>
+	<key>IDECodeSnippetCompletionScopes</key>
+	<array>
+		<string>All</string>
+		<string>CodeBlock</string>
+	</array>
+	<key>IDECodeSnippetContents</key>
+	<string>// A test method’s name always begins with test, followed by a description of what it tests.
+func testFetchPhotos() {
+    // It’s good practice to format the test into given, when and then sections
+
+    // Given: Here, you set up any values needed.
+
+    // URLSession methods are asynchronous
+    // They return right away, but don’t finish running until later.
+    // XCTestExpectation makes your test wait for the asynchronous operation to complete.
+    let promise = XCTestExpectation(description: "Fetch photos completed")
+    var responseError: Error?
+    var responsePhotos: [Photo]?
+
+    // When: In this section, you’ll execute the code being tested: Call createCellViewModel(photo:).
+    guard let bundle = Bundle.unitTest.path(forResource: "stub", ofType: "json") else {
+        XCTFail("Error: content not found")
+        return
+    }
+
+    sut.fetchPhotos(from: URL(fileURLWithPath: bundle), complete: { (photos, error) in
+        responseError = error
+        responsePhotos = photos
+        promise.fulfill()
+    })
+    wait(for: [promise], timeout: 1)
+
+    // Then: This is the section where you’ll assert the result you expect with a message that prints if the test fails.
+    XCTAssertNil(responseError)
+    XCTAssertNotNil(responsePhotos)
+}</string>
+	<key>IDECodeSnippetIdentifier</key>
+	<string>0D9B9702-6380-4D46-B61E-7577B7F8E26A</string>
+	<key>IDECodeSnippetLanguage</key>
+	<string>Xcode.SourceCodeLanguage.Swift</string>
+	<key>IDECodeSnippetSummary</key>
+	<string>APIServiceTests</string>
+	<key>IDECodeSnippetTitle</key>
+	<string>testFetchPhotos()</string>
+	<key>IDECodeSnippetUserSnippet</key>
+	<true/>
+	<key>IDECodeSnippetVersion</key>
+	<integer>2</integer>
+</dict>
+</plist>

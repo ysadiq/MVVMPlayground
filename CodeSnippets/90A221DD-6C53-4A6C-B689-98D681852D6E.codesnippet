@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDECodeSnippetCompletionPrefix</key>
+	<string>fetchFailure</string>
+	<key>IDECodeSnippetCompletionScopes</key>
+	<array>
+		<string>CodeBlock</string>
+		<string>All</string>
+	</array>
+	<key>IDECodeSnippetContents</key>
+	<string>    func testFetchFailure() {
+        // Given
+        let error = APIError.notFound
+
+        // When
+        sut.initFetch()
+        apiServiceMock.fetchFail(error: error)
+
+        // Then
+        XCTAssertEqual(sut.alertMessage, error.rawValue)
+    }</string>
+	<key>IDECodeSnippetIdentifier</key>
+	<string>90A221DD-6C53-4A6C-B689-98D681852D6E</string>
+	<key>IDECodeSnippetLanguage</key>
+	<string>Xcode.SourceCodeLanguage.Swift</string>
+	<key>IDECodeSnippetSummary</key>
+	<string>PhotoListViewModelTests</string>
+	<key>IDECodeSnippetTitle</key>
+	<string>testFetchFailure()</string>
+	<key>IDECodeSnippetUserSnippet</key>
+	<true/>
+	<key>IDECodeSnippetVersion</key>
+	<integer>2</integer>
+</dict>
+</plist>

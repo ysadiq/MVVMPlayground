@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDECodeSnippetCompletionPrefix</key>
+	<string>APIServiceMock+AsyncSimulation</string>
+	<key>IDECodeSnippetCompletionScopes</key>
+	<array>
+		<string>All</string>
+	</array>
+	<key>IDECodeSnippetContents</key>
+	<string>var photos: [Photo] = [Photo]()
+var completeClosure: (([Photo]?, APIError?) -&gt; ())!
+
+func fetchPhotos(from url: URL?, complete: @escaping ([Photo]?, APIError?) -&gt; ()) {
+    fetchPhotosIsCalled = true
+}
+
+func fetchPopularPhotos(complete: @escaping ([Photo]?, APIError?) -&gt; ()) {
+    fetchPopularPhotosIsCalled = true
+    // the callback closure is saved to the completeClosure for the later use.
+    completeClosure = complete
+}
+// the function call is finished but the escaping closure is still pending.
+// The closure won’t be triggered until the fetchSuccess() or the fetchFail(error:) is called.
+
+
+// Finally, when we call the fetchSuccess() or the fetchFail(error:),
+// the PhotoListViewModel receives the response data and continue to finish its jobs.
+func fetchSuccess() {
+    completeClosure(photos, nil)
+}
+
+func fetchFail(error: APIError?) {
+    completeClosure(nil, error)
+}
+
+// Now the APIServiceMock is able to simulate any kind of asynchronous request.
+// For example, we are able to assert the state of the ViewModel: state should be loading before fetchSuccess() is called.
+// This is a powerful technique because it mimics an async call, and it could be done immediately.</string>
+	<key>IDECodeSnippetIdentifier</key>
+	<string>E4F029BE-4205-406E-B70D-80400DAFA554</string>
+	<key>IDECodeSnippetLanguage</key>
+	<string>Xcode.SourceCodeLanguage.Swift</string>
+	<key>IDECodeSnippetSummary</key>
+	<string></string>
+	<key>IDECodeSnippetTitle</key>
+	<string>APIServiceMock+AsyncSimulation</string>
+	<key>IDECodeSnippetUserSnippet</key>
+	<true/>
+	<key>IDECodeSnippetVersion</key>
+	<integer>2</integer>
+</dict>
+</plist>

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDECodeSnippetCompletionPrefix</key>
+	<string>PhotoListViewModelTests</string>
+	<key>IDECodeSnippetCompletionScopes</key>
+	<array>
+		<string>ClassImplementation</string>
+		<string>All</string>
+	</array>
+	<key>IDECodeSnippetContents</key>
+	<string>@testable import MVVMPlayground
+
+class PhotoListViewModelTests: XCTestCase { 
+    var sut: PhotoListViewModel!
+
+    override func setUp() {
+        super.setUp()
+        sut = PhotoListViewModel()
+    }
+    
+    override func tearDown() {
+        sut = nil
+
+        super.tearDown()
+    }
+}</string>
+	<key>IDECodeSnippetIdentifier</key>
+	<string>8229A96E-3237-4810-B24E-9C3748CE2563</string>
+	<key>IDECodeSnippetLanguage</key>
+	<string>Xcode.SourceCodeLanguage.Swift</string>
+	<key>IDECodeSnippetSummary</key>
+	<string></string>
+	<key>IDECodeSnippetTitle</key>
+	<string>PhotoListViewModelTests</string>
+	<key>IDECodeSnippetUserSnippet</key>
+	<true/>
+	<key>IDECodeSnippetVersion</key>
+	<integer>2</integer>
+</dict>
+</plist>

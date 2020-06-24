@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDECodeSnippetCompletionPrefix</key>
+	<string>APIServiceMock</string>
+	<key>IDECodeSnippetCompletionScopes</key>
+	<array>
+		<string>ClassImplementation</string>
+		<string>All</string>
+	</array>
+	<key>IDECodeSnippetContents</key>
+	<string>@testable import MVVMPlayground
+
+// The mock APIService(APIServiceMock) object doesn’t connect to the real server,
+// it’s an object designed only for the test.
+
+// Both APIService and APIServiceMock conform to APIServiceProtocol,
+// so that we are able to inject different dependency in different situation.
+class APIServiceMock: APIServiceProtocol{
+    var fetchPopularPhotosIsCalled = false
+    var fetchPhotosIsCalled = false
+
+    func fetchPopularPhotos(complete: @escaping ([Photo]?, APIError?) -&gt; ()) {
+        fetchPopularPhotosIsCalled = true
+    }
+
+    func fetchPhotos(from url: URL?, complete: @escaping ([Photo]?, APIError?) -&gt; ()) {
+        fetchPhotosIsCalled = true
+    }
+}
+</string>
+	<key>IDECodeSnippetIdentifier</key>
+	<string>55C49154-50CF-48AE-8396-0EC0C828C42E</string>
+	<key>IDECodeSnippetLanguage</key>
+	<string>Xcode.SourceCodeLanguage.Swift</string>
+	<key>IDECodeSnippetSummary</key>
+	<string></string>
+	<key>IDECodeSnippetTitle</key>
+	<string>APIServiceMock</string>
+	<key>IDECodeSnippetUserSnippet</key>
+	<true/>
+	<key>IDECodeSnippetVersion</key>
+	<integer>2</integer>
+</dict>
+</plist>
